@@ -57,16 +57,16 @@ public class MovementComponent : MonoBehaviour
 		}
 	}
 
-	private void OnCollisionEnter2D(Collision2D collision)
+	public void CheckCollisionEnter(GameObject collisionGO)
 	{
-		if(((1 << collision.gameObject.layer)  & PlatformLayers.value) != 0 && (Physics2D.gravity.y < 0f && collision.gameObject.transform.position.y < transform.position.y) || (Physics2D.gravity.y > 0f && collision.gameObject.transform.position.y > transform.position.y))
+		if(((1 << collisionGO.layer)  & PlatformLayers.value) != 0 && (Physics2D.gravity.y < 0f && collisionGO.transform.position.y < transform.position.y) || (Physics2D.gravity.y > 0f && collisionGO.transform.position.y > transform.position.y))
 		{
 			IsJumping = false;
 			_isGliding = false;
 		}
 	}
 
-	private void OnCollisionExit2D(Collision2D collision)
+	public void CheckCollisionExit(Collision2D collision)
 	{
 		if(((1 << collision.gameObject.layer) & PlatformLayers.value) != 0)
 		{

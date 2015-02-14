@@ -595,7 +595,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c1622ab0a42590498ad0f73264cd568, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BulletPoolSize: 300
   BulletPrefab: {fileID: 169634, guid: 761c5a01b0740444ab398706fc814500, type: 2}
 --- !u!4 &414543302
 Transform:
@@ -677,7 +676,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 481470770}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10, y: -1, z: 0}
+  m_LocalPosition: {x: 18, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1365961191}
@@ -1130,6 +1129,7 @@ GameObject:
   - 50: {fileID: 616228996}
   - 114: {fileID: 616229000}
   - 114: {fileID: 616228995}
+  - 114: {fileID: 616229001}
   m_Layer: 12
   m_Name: enemy01
   m_TagString: Untagged
@@ -1170,7 +1170,7 @@ Rigidbody2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 616228994}
-  m_Mass: 1
+  m_Mass: 80
   m_LinearDrag: 0
   m_AngularDrag: .0500000007
   m_GravityScale: 10
@@ -1236,13 +1236,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edc2bbb8f9401f94a81e10b52be10945, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BaseSpeed: 100
-  JumpForce: 10
+  BaseSpeed: 50
+  JumpForce: 10000
   GlideForce: 9.81000042
   MaxGlideTime: 1
   PlatformLayers:
     serializedVersion: 2
     m_Bits: 512
+--- !u!114 &616229001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 616228994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5b0693f275e0c14fa897502a71908e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: 100
+  TakeDamageFromLayers:
+    serializedVersion: 2
+    m_Bits: 24576
 --- !u!1 &665800468
 GameObject:
   m_ObjectHideFlags: 0
@@ -2062,6 +2077,7 @@ GameObject:
   - 61: {fileID: 1320319390}
   - 114: {fileID: 1320319389}
   - 114: {fileID: 1320319394}
+  - 114: {fileID: 1320319395}
   m_Layer: 8
   m_Name: player01
   m_TagString: Untagged
@@ -2156,9 +2172,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 1320319388}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79527aadee677e14d88a79f3f42652d6, type: 3}
+  m_Script: {fileID: 11500000, guid: 90b31ef508db5f148b027fe2a5f568da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1320319395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1320319388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5b0693f275e0c14fa897502a71908e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _health: 100
+  TakeDamageFromLayers:
+    serializedVersion: 2
+    m_Bits: 17408
 --- !u!1 &1365961190
 GameObject:
   m_ObjectHideFlags: 0
@@ -2200,6 +2231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4121f67e5b267d24b93c98e228a96516, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BulletPoolSize: 300
   _currentWeapon:
     RateOfFire: .5
     DamageDealt: 10
@@ -3657,6 +3689,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4121f67e5b267d24b93c98e228a96516, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BulletPoolSize: 300
   _currentWeapon:
     RateOfFire: .100000001
     DamageDealt: 5

@@ -14,11 +14,11 @@ TagManager:
   Builtin Layer 7: 
   User Layer 8: Player
   User Layer 9: Platform
-  User Layer 10: Bullet
-  User Layer 11: Sensors
+  User Layer 10: enemy_bullets
+  User Layer 11: 
   User Layer 12: Enemies
-  User Layer 13: 
-  User Layer 14: 
+  User Layer 13: player_bullets
+  User Layer 14: other_bullets
   User Layer 15: 
   User Layer 16: 
   User Layer 17: 

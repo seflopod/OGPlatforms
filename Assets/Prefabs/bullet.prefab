@@ -11,6 +11,7 @@ GameObject:
   - 212: {fileID: 21269634}
   - 50: {fileID: 5069634}
   - 61: {fileID: 6169634}
+  - 114: {fileID: 11490910}
   m_Layer: 10
   m_Name: bullet
   m_TagString: Untagged
@@ -44,7 +45,7 @@ Rigidbody2D:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!61 &6169634
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -56,6 +57,18 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_Size: {x: 8, y: 8}
   m_Center: {x: 0, y: 0}
+--- !u!114 &11490910
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 169634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8eacf4f5d29a4842979b90158ff6286, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DamageValue: 0
 --- !u!212 &21269634
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using OgreToast.Utility;
 
-[RequireComponent(typeof(MovementComponent), typeof(SpriteRenderer))]
+[RequireComponent(typeof(MovementComponent), typeof(SpriteRenderer), typeof(HealthComponent))]
 public class BasicAI : BaseAI<BasicAI>
 {
 	#region patrol_public_vars
+	[Header("Patrolling")]
 	public bool DoPatrolAtStart = true;
 	public bool ShowNodesInEditor = true;
 	public Vector3 PatrolNode1;
@@ -16,6 +17,7 @@ public class BasicAI : BaseAI<BasicAI>
 	[Space(16)]
 
 	#region sensing_public_vars
+	[Header("Sensing")]
 	public bool CheckForSomething = true;
 	public bool ShowSensorInEditor = true;
 	public Vector2 SensorCenter = Vector2.zero;
@@ -24,7 +26,10 @@ public class BasicAI : BaseAI<BasicAI>
 	public LayerMask SensorLayersToCheck = 0;
 	#endregion
 
+	[Space(16)]
+
 	#region attacking_public_vars
+	[Header("Fighting")]
 	public bool CanAttack = true;
 	public float TimeBeforeAttackExpires = 10f;
 	#endregion
@@ -37,6 +42,7 @@ public class BasicAI : BaseAI<BasicAI>
 	private Vector2 _realSensorCenter;
 	private SimpleTimer _attackExpireTimer;
 	private WeaponComponent _weapon = null;
+	private HealthComponent _health;
 
 	private void Start()
 	{
@@ -58,6 +64,8 @@ public class BasicAI : BaseAI<BasicAI>
 
 		_attackExpireTimer = new SimpleTimer(TimeBeforeAttackExpires);
 		_weapon = transform.FindChild("gun").gameObject.GetComponent<WeaponComponent>();
+		_health = GetComponent<HealthComponent>();
+		_health.Dead += OnDead;
 	}
 
 	protected void OnDrawGizmosSelected()
@@ -136,6 +144,12 @@ public class BasicAI : BaseAI<BasicAI>
 			}
 
 			Vector2 dirToTarget = (target.position - transform.position).normalized;
+			if(dirToTarget.y > 0.7f && dirToTarget.x != 0f && !_moveComponent.IsJumping)
+			{
+				Debug.Log("Jump");
+				_moveComponent.Jump();
+				dirToTarget = (target.position - transform.position).normalized;
+			}
 			dirToTarget.x = Mathf.RoundToInt(dirToTarget.x);
 			dirToTarget.y = Mathf.RoundToInt(dirToTarget.y);
 			if(_weapon != null)
@@ -154,5 +168,10 @@ public class BasicAI : BaseAI<BasicAI>
 			return numSensed != 0;
 		}
 		return false;
+	}
+
+	protected void OnDead(object sender, System.EventArgs e)
+	{
+		Debug.Log("AI Dead");
 	}
 }

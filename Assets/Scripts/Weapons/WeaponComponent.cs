@@ -3,12 +3,14 @@ using OgreToast.Utility;
 
 public class WeaponComponent : MonoBehaviour
 {
+	public int BulletPoolSize = 300;
 	[SerializeField]
 	private WeaponInfo _currentWeapon;
 
 	private Transform _bulletStartTrans;
 	private SimpleTimer _fireTimer;
 	private Vector2 _aimDir = Vector2.right;
+	private GameObjectPool _bulletPool;
 
 	public WeaponInfo CurrentWeapon
 	{
@@ -20,7 +22,16 @@ public class WeaponComponent : MonoBehaviour
 		_bulletStartTrans = transform.FindChild("bullet start");
 		_fireTimer = new SimpleTimer(_currentWeapon.RateOfFire);
 
-
+		_bulletPool = GameObjectPool.CreateNewPool(GameManager.Instance.BulletPrefab, BulletPoolSize, delegate(GameObject go) {
+			if(transform.parent.gameObject.layer == LayerMask.NameToLayer("Enemies"))
+			{
+				go.layer = LayerMask.NameToLayer("enemy_bullets");
+			}
+			else if(transform.parent.gameObject.layer == LayerMask.NameToLayer("Player"))
+			{
+				go.layer = LayerMask.NameToLayer("player_bullets");
+			}
+		});
 	}
 
 	public void Aim(Vector2 dir)
@@ -73,16 +84,17 @@ public class WeaponComponent : MonoBehaviour
 		if(!_fireTimer.IsRunning || _fireTimer.IsExpired)
 		{
 			_fireTimer.Stop();
-			GameObject bullet = GameManager.Instance.GetBullet();
+			GameObject bullet = _bulletPool.GetGameObject();
 			bullet.SetActive(true);
 			bullet.transform.position = _bulletStartTrans.position;
+			bullet.transform.rotation = transform.rotation;
 			bullet.renderer.enabled = true;
 			bullet.GetComponent<SpriteRenderer>().sprite = _currentWeapon.BulletSprite;
 			bullet.collider2D.enabled = true;
 			BoxCollider2D box = bullet.collider2D as BoxCollider2D;
 			box.size = _currentWeapon.BulletSprite.bounds.size;
-			box.center = bullet.transform.position;
-
+			box.center = Vector2.zero;
+			bullet.GetComponent<BulletBehaviour>().DamageValue = _currentWeapon.DamageDealt;
 			bullet.rigidbody2D.velocity = _currentWeapon.BulletSpeed * _aimDir;
 			_fireTimer.Start();
 		}
