@@ -6,6 +6,7 @@ public class MovementComponent : MonoBehaviour
 {
 	public float BaseSpeed = 10f;
 	public float JumpForce = 10f;
+	public float JumpVelocityThreshold = 5f;
 
 	[Range(0f, 20f)]
 	public float GlideForce = 9.81f;
@@ -41,14 +42,27 @@ public class MovementComponent : MonoBehaviour
 
 	private void FixedUpdate()
 	{
-		if(rigidbody2D.velocity.y < 3f)
+		if(rigidbody2D.velocity.y > 0f && rigidbody2D.velocity.y < JumpVelocityThreshold)
 		{
-			rigidbody2D.gravityScale = 20f;
+			Vector2 vel = rigidbody2D.velocity;
+			vel.y = 0f;
+			rigidbody2D.velocity = vel;
 		}
-		else
+		else if(rigidbody2D.velocity.y < 0 && rigidbody2D.velocity.y > -JumpVelocityThreshold)
 		{
-			rigidbody2D.gravityScale = 10f;
+			Vector2 vel = rigidbody2D.velocity;
+			vel.y = -JumpVelocityThreshold;
+			rigidbody2D.velocity = vel;
 		}
+
+//		if(rigidbody2D.velocity.y < 3f)
+//		{
+//			rigidbody2D.gravityScale = 20f;
+//		}
+//		else
+//		{
+//			rigidbody2D.gravityScale = 10f;
+//		}
 
 		if(_isGliding && _glideAccumulator < MaxGlideTime)
 		{

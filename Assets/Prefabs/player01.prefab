@@ -141,7 +141,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BaseSpeed: 100
-  JumpForce: 10000
+  JumpForce: 12000
+  JumpVelocityThreshold: 100
   GlideForce: 10
   MaxGlideTime: 1
   PlatformLayers:
