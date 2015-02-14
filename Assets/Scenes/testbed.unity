@@ -2882,7 +2882,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1670815300}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c08d6c414400ce4b93d4501e0b68999, type: 3}
+  m_Script: {fileID: 11500000, guid: 865b6746cebbe8446bc403d4d4e5df00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dampTime: .5
@@ -2893,6 +2893,25 @@ MonoBehaviour:
   ConstrainMovement: 1
   MaximumPoint: {x: 768, y: 108}
   MinimumPoint: {x: -768, y: -108}
+  ShakeOnTargetHit: 1
+  TargetHitShake:
+    ShakeTime: .25
+    ShakeMagnitude: {x: .5, y: .5}
+  ShakeOnExplosions: 0
+  ExplosionShake:
+    ShakeTime: 0
+    ShakeMagnitude: {x: 0, y: 0}
+  ShakeOnMachineGunFire: 0
+  MachineGunFireShake:
+    ShakeTime: 0
+    ShakeMagnitude: {x: 0, y: 0}
+  ShakeOnRocketLaunch: 0
+  RocketLaunchShake:
+    ShakeTime: 0
+    ShakeMagnitude: {x: 0, y: 0}
+  MaxShakeInfo:
+    ShakeTime: 5
+    ShakeMagnitude: {x: 20, y: 20}
 --- !u!1 &1716334398
 GameObject:
   m_ObjectHideFlags: 0

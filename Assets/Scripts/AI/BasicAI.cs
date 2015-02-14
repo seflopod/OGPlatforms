@@ -14,8 +14,6 @@ public class BasicAI : BaseAI<BasicAI>
 	public float PauseAtNodeTime = 0.5f;
 	#endregion
 
-	[Space(16)]
-
 	#region sensing_public_vars
 	[Header("Sensing")]
 	public bool CheckForSomething = true;
@@ -25,8 +23,6 @@ public class BasicAI : BaseAI<BasicAI>
 	public int MaxObjectsToFind = 1;
 	public LayerMask SensorLayersToCheck = 0;
 	#endregion
-
-	[Space(16)]
 
 	#region attacking_public_vars
 	[Header("Fighting")]
@@ -143,7 +139,7 @@ public class BasicAI : BaseAI<BasicAI>
 		if(HasSensedSomething() && CanAttack)
 		{
 			rigidbody2D.velocity = Vector2.zero;
-			//currentState = AttackState;
+			currentState = AttackState;
 		}
 	}
 
