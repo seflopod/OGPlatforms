@@ -10,15 +10,34 @@ public class HealthComponent : MonoBehaviour
 	public event HitEventHandler Hit;
 
 	[SerializeField]
-	[PrivateIntRange("Health", 0, 9999)]
-	private int _health = 100;
+	[PrivateIntRange("Max Health", 0, 9999)]
+	private int _maxHealth = 100;
 
+	[SerializeField]
+	[PrivateIntRange("Health", 0, 9999)]
+	private int _startHealth = 100;
+
+	private int _curHealth = 0;
 	public LayerMask TakeDamageFromLayers = 0;
 
-	public int Health
+	public int CurrentHealth
 	{
-		get { return _health; }
-		set { _health = value; }
+		get { return _curHealth; }
+		set
+		{
+			Debug.Log(_curHealth);
+			_curHealth = value;
+			if(_curHealth > _maxHealth)
+			{
+				_curHealth = _maxHealth;
+			}
+			Debug.Log(_curHealth);
+		}
+	}
+
+	private void Start()
+	{
+		CurrentHealth = _startHealth;
 	}
 
 	public void CheckCollisionEnter(GameObject collisionGO)
@@ -28,8 +47,8 @@ public class HealthComponent : MonoBehaviour
 			BulletBehaviour bb = collisionGO.GetComponent<BulletBehaviour>();
 			if(bb != null)
 			{
-				_health -= bb.DamageValue;
-				if(_health <= 0)
+				_curHealth -= bb.DamageValue;
+				if(_curHealth <= 0)
 				{
 					OnDead(null);
 				}

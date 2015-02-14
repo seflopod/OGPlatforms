@@ -1,8 +1,12 @@
 ﻿using UnityEngine;
 using OgreToast.Utility;
 
+[RequireComponent(typeof(SpriteRenderer))]
 public class WeaponComponent : MonoBehaviour
 {
+	public delegate void WeaponFireHandler(object sender, WeaponInfo weaponInfo);
+	public event WeaponFireHandler FireWeapon;
+
 	public int BulletPoolSize = 300;
 	[SerializeField]
 	private WeaponInfo _currentWeapon;
@@ -12,9 +16,28 @@ public class WeaponComponent : MonoBehaviour
 	private Vector2 _aimDir = Vector2.right;
 	private GameObjectPool _bulletPool;
 
+	private WeaponInfo _baseWeapon;
+	private int _currentAmmo = 0;
+
 	public WeaponInfo CurrentWeapon
 	{
 		get { return _currentWeapon; }
+		set
+		{
+			_currentWeapon = value;
+			//need to swap weapon sprite and maybe animations?
+			GetComponent<SpriteRenderer>().sprite = _currentWeapon.WeaponSprite;
+			_fireTimer.TargetTime = _currentWeapon.RateOfFire;
+			if(_currentWeapon.HasAmmo)
+			{
+				_currentAmmo = _currentWeapon.StartAmmo;
+			}
+		}
+	}
+
+	public int CurrentAmmo
+	{
+		get { return _currentAmmo; }
 	}
 
 	private void Start()
@@ -32,6 +55,7 @@ public class WeaponComponent : MonoBehaviour
 				go.layer = LayerMask.NameToLayer("player_bullets");
 			}
 		});
+		_baseWeapon = _currentWeapon;
 	}
 
 	public void Aim(Vector2 dir)
@@ -81,7 +105,7 @@ public class WeaponComponent : MonoBehaviour
 
 	public void Fire()
 	{
-		if(!_fireTimer.IsRunning || _fireTimer.IsExpired)
+		if((!_currentWeapon.HasAmmo || _currentAmmo > 0) && (!_fireTimer.IsRunning || _fireTimer.IsExpired))
 		{
 			_fireTimer.Stop();
 			GameObject bullet = _bulletPool.GetGameObject();
@@ -96,7 +120,19 @@ public class WeaponComponent : MonoBehaviour
 			box.center = Vector2.zero;
 			bullet.GetComponent<BulletBehaviour>().DamageValue = _currentWeapon.DamageDealt;
 			bullet.rigidbody2D.velocity = _currentWeapon.BulletSpeed * _aimDir;
+			--_currentAmmo;
 			_fireTimer.Start();
+
+			WeaponFireHandler handler = FireWeapon;
+			if(handler != null)
+			{
+				handler(this, _currentWeapon);
+			}
+		}
+
+		if(_currentWeapon.HasAmmo && _currentAmmo <= 0)
+		{
+			CurrentWeapon = _baseWeapon;
 		}
 	}
 

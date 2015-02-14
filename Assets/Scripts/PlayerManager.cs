@@ -108,6 +108,19 @@ public class PlayerManager : MonoBehaviour
 		_mover.CheckCollisionExit(collision);
 	}
 
+	//don't need to broadcast to other components since none of them use triggers
+	private void OnTriggerEnter2D(Collider2D other)
+	{
+		if(LayerMask.LayerToName(other.gameObject.layer) == "Pickups")
+		{
+			AbstractPickup ap = other.gameObject.GetComponent<AbstractPickup>();
+			if(ap != null && !ap.HasApplied)
+			{
+				ap.Apply(this);
+			}
+		}
+	}
+
 	private void OnHit(object sender, Vector2 hitDirection)
 	{
 		if(!_stunTimer.IsRunning)

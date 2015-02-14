@@ -188,10 +188,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BulletPoolSize: 300
   _currentWeapon:
+    Name: blaster
+    WeaponSprite: {fileID: 21300000, guid: f1ec27274f741c044891cb954587e770, type: 3}
     RateOfFire: .5
     DamageDealt: 10
     BulletSprite: {fileID: 21300000, guid: 934708b32574e4f488d87afa57361c7c, type: 3}
     BulletSpeed: 200
+    HasAmmo: 0
+    StartAmmo: 10
 --- !u!212 &21290168
 SpriteRenderer:
   m_ObjectHideFlags: 1

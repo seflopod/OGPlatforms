@@ -15,7 +15,7 @@ TagManager:
   User Layer 8: Player
   User Layer 9: Platform
   User Layer 10: enemy_bullets
-  User Layer 11: 
+  User Layer 11: Pickups
   User Layer 12: Enemies
   User Layer 13: player_bullets
   User Layer 14: other_bullets
