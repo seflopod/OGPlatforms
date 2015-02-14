@@ -67,6 +67,11 @@ public class BasicAI : BaseAI<BasicAI>
 		_health = GetComponent<HealthComponent>();
 		_health.Dead += OnDead;
 		_health.Hit += OnHit;
+
+		if(Mathf.RoundToInt(Mathf.Cos(transform.rotation.eulerAngles.y * Mathf.Deg2Rad)) == -1)
+		{
+			SensorCenter.x *= -1;
+		}
 	}
 
 	protected new void Update()
@@ -98,8 +103,13 @@ public class BasicAI : BaseAI<BasicAI>
 
 		if(ShowSensorInEditor)
 		{
+			Vector3 center = SensorCenter;
+			if(Mathf.RoundToInt(Mathf.Cos(transform.rotation.eulerAngles.y * Mathf.Deg2Rad)) == -1 && !Application.isPlaying)
+			{
+				center.x = -1 * SensorCenter.x;
+			}
 			Gizmos.color = Color.red;
-			Gizmos.DrawWireSphere(transform.position + (Vector3)SensorCenter, SensorRadius);
+			Gizmos.DrawWireSphere(transform.position + center, SensorRadius);
 		}
 	}
 
