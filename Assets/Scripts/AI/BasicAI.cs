@@ -32,10 +32,12 @@ public class BasicAI : BaseAI<BasicAI>
 	[Header("Fighting")]
 	public bool CanAttack = true;
 	public float TimeBeforeAttackExpires = 10f;
+	public float HitStunTime = 0.1f;
+	public float HitPushForce = 100f;
 	#endregion
 
 	private Vector3 _moveTarget;
-	private MovementComponent _moveComponent;
+	private MovementComponent _mover;
 	private SimpleTimer _pauseTimer;
 
 	private Collider2D[] _sensedColliders;
@@ -43,11 +45,12 @@ public class BasicAI : BaseAI<BasicAI>
 	private SimpleTimer _attackExpireTimer;
 	private WeaponComponent _weapon = null;
 	private HealthComponent _health;
+	private SimpleTimer _stunTimer;
 
 	private void Start()
 	{
 		_moveTarget = PatrolNode2;
-		_moveComponent = GetComponent<MovementComponent>();
+		_mover = GetComponent<MovementComponent>();
 		_pauseTimer = new SimpleTimer(PauseAtNodeTime);
 		_pauseTimer.Start();
 		if(DoPatrolAtStart)
@@ -64,8 +67,26 @@ public class BasicAI : BaseAI<BasicAI>
 
 		_attackExpireTimer = new SimpleTimer(TimeBeforeAttackExpires);
 		_weapon = transform.FindChild("gun").gameObject.GetComponent<WeaponComponent>();
+		_stunTimer = new SimpleTimer(HitStunTime);
 		_health = GetComponent<HealthComponent>();
 		_health.Dead += OnDead;
+		_health.Hit += OnHit;
+	}
+
+	protected new void Update()
+	{
+		if(!_stunTimer.IsRunning)
+		{
+			base.Update();
+		}
+	}
+
+	protected virtual void LateUpdate()
+	{
+		if(_stunTimer.IsExpired)
+		{
+			_stunTimer.Stop();
+		}
 	}
 
 	protected void OnDrawGizmosSelected()
@@ -86,7 +107,19 @@ public class BasicAI : BaseAI<BasicAI>
 		}
 	}
 
-	protected void PatrolState()
+	protected virtual void OnCollisionEnter2D(Collision2D collision)
+	{
+		GameObject collisionGO = collision.gameObject;
+		_mover.CheckCollisionEnter(collisionGO);
+		_health.CheckCollisionEnter(collisionGO);
+	}
+	
+	protected virtual void OnCollisionExit2D(Collision2D collision)
+	{
+		_mover.CheckCollisionExit(collision);
+	}
+
+	protected virtual void PatrolState()
 	{
 		if(Mathf.Abs(transform.position.x - _moveTarget.x) < 1f && !_pauseTimer.IsRunning)
 		{
@@ -96,13 +129,13 @@ public class BasicAI : BaseAI<BasicAI>
 		else if(_pauseTimer.IsExpired)
 		{
 			_pauseTimer.Stop();
-			_moveComponent.BaseSpeed = PatrolSpeed;
+			_mover.BaseSpeed = PatrolSpeed;
 			float xMod = (transform.position.x < _moveTarget.x) ? 1f : -1f;
 			if((SensorCenter.x < 0 && xMod > 0) || (SensorCenter.x > 0 && xMod < 0))
 			{
 				SensorCenter.x *= -1;
 			}
-			_moveComponent.Run(xMod);
+			_mover.Run(xMod);
 			_realSensorCenter = (Vector2)transform.position + SensorCenter;
 		}
 
@@ -110,11 +143,11 @@ public class BasicAI : BaseAI<BasicAI>
 		if(HasSensedSomething() && CanAttack)
 		{
 			rigidbody2D.velocity = Vector2.zero;
-			currentState = AttackState;
+			//currentState = AttackState;
 		}
 	}
 
-	protected void AttackState()
+	protected virtual void AttackState()
 	{
 		//keep checking for player
 		if(!HasSensedSomething())
@@ -144,10 +177,10 @@ public class BasicAI : BaseAI<BasicAI>
 			}
 
 			Vector2 dirToTarget = (target.position - transform.position).normalized;
-			if(dirToTarget.y > 0.7f && dirToTarget.x != 0f && !_moveComponent.IsJumping)
+			if(dirToTarget.y > 0.7f && dirToTarget.x != 0f && !_mover.IsJumping)
 			{
 				Debug.Log("Jump");
-				_moveComponent.Jump();
+				_mover.Jump();
 				dirToTarget = (target.position - transform.position).normalized;
 			}
 			dirToTarget.x = Mathf.RoundToInt(dirToTarget.x);
@@ -170,7 +203,18 @@ public class BasicAI : BaseAI<BasicAI>
 		return false;
 	}
 
-	protected void OnDead(object sender, System.EventArgs e)
+	protected virtual void OnHit(object sender, Vector2 hitDirection)
+	{
+		if(!_stunTimer.IsRunning)
+		{
+			rigidbody2D.AddForce(HitPushForce * hitDirection, ForceMode2D.Impulse);
+			_stunTimer.Stop();
+			_stunTimer.TargetTime = HitStunTime;
+			_stunTimer.Start();
+		}
+	}
+
+	protected virtual void OnDead(object sender, System.EventArgs e)
 	{
 		Debug.Log("AI Dead");
 	}

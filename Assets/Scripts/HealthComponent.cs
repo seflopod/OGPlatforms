@@ -4,7 +4,10 @@ using OgreToast.Attributes;
 
 public class HealthComponent : MonoBehaviour 
 {
+	public delegate void HitEventHandler(object sender, Vector2 hitDirection);
+
 	public event EventHandler Dead;
+	public event HitEventHandler Hit;
 
 	[SerializeField]
 	[PrivateIntRange("Health", 0, 9999)]
@@ -26,11 +29,15 @@ public class HealthComponent : MonoBehaviour
 			if(bb != null)
 			{
 				_health -= bb.DamageValue;
-				bb.Kill();
 				if(_health <= 0)
 				{
 					OnDead(null);
 				}
+				else
+				{
+					OnHit(bb.rigidbody2D.velocity.normalized);
+				}
+				bb.Kill();
 			}
 		}
 	}
@@ -41,6 +48,15 @@ public class HealthComponent : MonoBehaviour
 		if(handler != null)
 		{
 			handler(this, e);
+		}
+	}
+
+	private void OnHit(Vector2 hitDirection)
+	{
+		HitEventHandler handler = Hit;
+		if(handler != null)
+		{
+			handler(this, hitDirection);
 		}
 	}
 }
