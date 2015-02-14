@@ -141,4 +141,9 @@ public class WeaponComponent : MonoBehaviour
 		_currentWeapon = newInfo;
 		_fireTimer.TargetTime = _currentWeapon.RateOfFire;
 	}
+
+	public void Reset()
+	{
+		ChangeWeapon(_baseWeapon);
+	}
 }

@@ -6,13 +6,18 @@ public class PlayerManager : MonoBehaviour
 {
 	public float HitStunTime = 0.1f;
 	public float HitPushForce = 100f;
+	public float TimeToRespawn = 3f;
 
 	private MovementComponent _mover;
 	private WeaponComponent _weapon;
 	private HealthComponent _health;
 
 	private SimpleTimer _stunTimer;
+	private Vector3 _spawnPos;
+	private bool _isDespawned = false;
+	private SimpleTimer _respawnTimer;
 
+	#region monobehaviour
 	private void Start()
 	{
 		_mover = GetComponent<MovementComponent>();
@@ -21,70 +26,79 @@ public class PlayerManager : MonoBehaviour
 		_health = GetComponent<HealthComponent>();
 		_health.Dead += OnDead;
 		_health.Hit += OnHit;
+		_spawnPos = transform.position;
+		_respawnTimer = new SimpleTimer(TimeToRespawn);
 	}
 
 	private void Update ()
 	{
-		if(!_stunTimer.IsRunning)
+		if(!_isDespawned)
 		{
-			float xMod = Input.GetAxis("Horizontal");
-			if(xMod < 0f)
+			if(!_stunTimer.IsRunning)
 			{
-				xMod = -1f;
-			}
-			else if(xMod > 0f)
-			{
-				xMod = 1f;
-			}
-
-			float yMod = Input.GetAxis("Vertical");
-			if(yMod < 0f)
-			{
-				yMod = -1f;
-			}
-			else if(yMod > 0f)
-			{
-				yMod = 1f;
-			}
-
-			bool aimMode = Input.GetButton("Fire2");
-			if(!aimMode)
-			{
-				_mover.Run(xMod);
-			}
-			else
-			{
+				float xMod = Input.GetAxis("Horizontal");
 				if(xMod < 0f)
 				{
-					transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+					xMod = -1f;
 				}
 				else if(xMod > 0f)
 				{
-					transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+					xMod = 1f;
+				}
+
+				float yMod = Input.GetAxis("Vertical");
+				if(yMod < 0f)
+				{
+					yMod = -1f;
+				}
+				else if(yMod > 0f)
+				{
+					yMod = 1f;
+				}
+
+				bool aimMode = Input.GetButton("Fire2");
+				if(!aimMode)
+				{
+					_mover.Run(xMod);
+				}
+				else
+				{
+					if(xMod < 0f)
+					{
+						transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+					}
+					else if(xMod > 0f)
+					{
+						transform.rotation = Quaternion.Euler(0f, 0f, 0f);
+					}
+				}
+				
+				if(!_mover.IsJumping && Input.GetButtonDown("Jump"))
+				{
+					_mover.Jump();
+				}
+				else if(_mover.IsJumping && Input.GetButton("Jump"))
+				{
+					_mover.IsGliding = true;
+				}
+				
+				if(Input.GetButtonUp("Jump"))
+				{
+					_mover.IsGliding = false;
+				}
+
+				Vector2 fireDir = (new Vector2(xMod, yMod)).normalized;
+				_weapon.Aim(fireDir);
+
+				if(Input.GetButton("Fire1"))
+				{
+					_weapon.Fire();
 				}
 			}
-			
-			if(!_mover.IsJumping && Input.GetButtonDown("Jump"))
-			{
-				_mover.Jump();
-			}
-			else if(_mover.IsJumping && Input.GetButton("Jump"))
-			{
-				_mover.IsGliding = true;
-			}
-			
-			if(Input.GetButtonUp("Jump"))
-			{
-				_mover.IsGliding = false;
-			}
-
-			Vector2 fireDir = (new Vector2(xMod, yMod)).normalized;
-			_weapon.Aim(fireDir);
-
-			if(Input.GetButton("Fire1"))
-			{
-				_weapon.Fire();
-			}
+		}
+		else if(_respawnTimer.IsExpired)
+		{
+			Respawn();
 		}
 	}
 
@@ -120,7 +134,9 @@ public class PlayerManager : MonoBehaviour
 			}
 		}
 	}
+	#endregion
 
+	#region events
 	private void OnHit(object sender, Vector2 hitDirection)
 	{
 		if(!_stunTimer.IsRunning)
@@ -134,6 +150,41 @@ public class PlayerManager : MonoBehaviour
 
 	private void OnDead(object sender, System.EventArgs e)
 	{
-		Debug.Log("Dead!");
+		Despawn();
+	}
+	#endregion
+
+	public void Despawn()
+	{
+		if(!_isDespawned)
+		{
+			rigidbody2D.velocity = Vector2.zero;
+			rigidbody2D.isKinematic = true;
+			collider2D.enabled = false;
+			_weapon.renderer.enabled = false;
+			renderer.enabled = false;
+			_isDespawned = true;
+			_respawnTimer.TargetTime = TimeToRespawn;
+			_respawnTimer.Start();
+		}
+	}
+
+	public void Respawn()
+	{
+		if(_isDespawned)
+		{
+			_isDespawned = false;
+			transform.position = _spawnPos;
+			renderer.enabled = true;
+			_weapon.renderer.enabled = true;
+			collider2D.enabled = true;
+			rigidbody2D.isKinematic = false;
+			_weapon.Reset ();
+			_health.Reset();
+			Vector3 cameraPos = Camera.main.transform.position;
+			cameraPos.x = transform.position.x;
+			cameraPos.y = transform.position.y;
+			Camera.main.transform.position = cameraPos;
+		}
 	}
 }

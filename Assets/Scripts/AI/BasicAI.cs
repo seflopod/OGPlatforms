@@ -42,6 +42,7 @@ public class BasicAI : BaseAI<BasicAI>
 	private WeaponComponent _weapon = null;
 	private HealthComponent _health;
 	private SimpleTimer _stunTimer;
+	protected bool _isDying = false;
 
 	private void Start()
 	{
@@ -222,6 +223,10 @@ public class BasicAI : BaseAI<BasicAI>
 
 	protected virtual void OnDead(object sender, System.EventArgs e)
 	{
-		Debug.Log("AI Dead");
+		if(!_isDying)
+		{
+			_isDying = true;
+			Destroy (gameObject);
+		}
 	}
 }

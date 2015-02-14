@@ -25,13 +25,11 @@ public class HealthComponent : MonoBehaviour
 		get { return _curHealth; }
 		set
 		{
-			Debug.Log(_curHealth);
 			_curHealth = value;
 			if(_curHealth > _maxHealth)
 			{
 				_curHealth = _maxHealth;
 			}
-			Debug.Log(_curHealth);
 		}
 	}
 
@@ -77,5 +75,10 @@ public class HealthComponent : MonoBehaviour
 		{
 			handler(this, hitDirection);
 		}
+	}
+
+	public void Reset()
+	{
+		CurrentHealth = _startHealth;
 	}
 }
