@@ -2080,7 +2080,7 @@ GameObject:
   - 114: {fileID: 1320319395}
   m_Layer: 8
   m_Name: player01
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2784,9 +2784,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dampTime: .5
   target: {fileID: 1320319393}
-  TargetViewportMinimum: {x: 0, y: 0}
-  TargetViewportMaximum: {x: 0, y: 0}
-  ConstrainMovement: 0
+  UseViewportCushion: 1
+  TargetViewportMinimum: {x: .330000013, y: .330000013}
+  TargetViewportMaximum: {x: .670000017, y: .670000017}
+  ConstrainMovement: 1
   MaximumPoint: {x: 768, y: 108}
   MinimumPoint: {x: -768, y: -108}
 --- !u!1 &1716334398

@@ -18,12 +18,19 @@ public class SmoothCamera2D : MonoBehaviour
 	private void Start()
 	{
 		_destination = transform.position;
+		if(target == null)
+		{
+			GameObject go = GameObject.FindGameObjectWithTag("Player");
+			if(go != null)
+			{
+				target = go.transform;
+			}
+		}
 	}
-
-	// Update is called once per frame
-	void Update () 
+	
+	private void Update() 
 	{
-		if (target)
+		if(target != null)
 		{
 			Vector3 point = camera.WorldToViewportPoint(target.position);
 			Vector3 viewportDest = new Vector3(0.5f, 0.5f, point.z);
