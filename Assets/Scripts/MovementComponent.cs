@@ -35,12 +35,12 @@ public class MovementComponent : MonoBehaviour
 	private bool _isGliding = false;
 	private float _glideAccumulator = 0f;
 
-	private void Start()
+	protected virtual void Start()
 	{
 		IsJumping = true;
 	}
 
-	private void FixedUpdate()
+	protected virtual void FixedUpdate()
 	{
 		if(rigidbody2D.velocity.y > 0f && rigidbody2D.velocity.y < JumpVelocityThreshold)
 		{
@@ -55,15 +55,6 @@ public class MovementComponent : MonoBehaviour
 			rigidbody2D.velocity = vel;
 		}
 
-//		if(rigidbody2D.velocity.y < 3f)
-//		{
-//			rigidbody2D.gravityScale = 20f;
-//		}
-//		else
-//		{
-//			rigidbody2D.gravityScale = 10f;
-//		}
-
 		if(_isGliding && _glideAccumulator < MaxGlideTime)
 		{
 			rigidbody2D.AddForce(Mathf.Sign(Physics2D.gravity.y) * rigidbody2D.mass * GlideForce * -Vector2.up);
@@ -71,7 +62,7 @@ public class MovementComponent : MonoBehaviour
 		}
 	}
 
-	public void CheckCollisionEnter(GameObject collisionGO)
+	public virtual void CheckCollisionEnter(GameObject collisionGO)
 	{
 		if(((1 << collisionGO.layer)  & PlatformLayers.value) != 0 && (Physics2D.gravity.y < 0f && collisionGO.transform.position.y < transform.position.y) || (Physics2D.gravity.y > 0f && collisionGO.transform.position.y > transform.position.y))
 		{
@@ -80,7 +71,7 @@ public class MovementComponent : MonoBehaviour
 		}
 	}
 
-	public void CheckCollisionExit(Collision2D collision)
+	public virtual void CheckCollisionExit(Collision2D collision)
 	{
 		if(((1 << collision.gameObject.layer) & PlatformLayers.value) != 0)
 		{
@@ -101,7 +92,7 @@ public class MovementComponent : MonoBehaviour
 		}
 	}
 
-	public void Run(float xMod)
+	public virtual void Run(float xMod)
 	{
 		Vector2 vel = rigidbody2D.velocity;
 		vel.x = xMod * BaseSpeed;
@@ -116,7 +107,7 @@ public class MovementComponent : MonoBehaviour
 		rigidbody2D.velocity = vel;
 	}
 
-	public void Jump()
+	public virtual void Jump()
 	{
 		if(IsJumping)
 		{
