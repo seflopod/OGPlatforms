@@ -77,7 +77,7 @@ MonoBehaviour:
     UserInterfaceBG: {fileID: 21300000, guid: ce7a003b701369d4286346981ca3f19e, type: 3}
     RateOfFire: 1
     DamageDealt: 100
-    BulletSprite: {fileID: 21300000, guid: 0978bf446f56c314093273b5305c58e2, type: 3}
+    BulletSprite: {fileID: 21300000, guid: 659d120ed6f7d8f449d230d2eef4f720, type: 3}
     BulletSpeed: 100
     BulletImpactPoolIndex: 2
     HasAmmo: 1
