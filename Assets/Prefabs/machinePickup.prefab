@@ -55,8 +55,8 @@ BoxCollider2D:
   m_Enabled: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Size: {x: 16, y: 16}
-  m_Center: {x: 0, y: 0}
+  m_Size: {x: 25, y: 13}
+  m_Center: {x: 8.10510445, y: -4.44678593}
 --- !u!114 &11420486
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -72,12 +72,12 @@ MonoBehaviour:
   Info:
     Name: machineGun
     WeaponSprite: {fileID: 21300000, guid: 8ac0b5014ea3c2c438dc0abebd61378d, type: 3}
-    RateOfFire: .00999999978
+    RateOfFire: .0700000003
     DamageDealt: 20
-    BulletSprite: {fileID: 21300000, guid: 934708b32574e4f488d87afa57361c7c, type: 3}
+    BulletSprite: {fileID: 21300000, guid: 0978bf446f56c314093273b5305c58e2, type: 3}
     BulletSpeed: 200
     HasAmmo: 1
-    StartAmmo: 50
+    StartAmmo: 150
 --- !u!212 &21220486
 SpriteRenderer:
   m_ObjectHideFlags: 1
