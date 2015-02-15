@@ -11,6 +11,7 @@ public class PlayerManager : MonoBehaviour
 	private MovementComponent _mover;
 	private WeaponComponent _weapon;
 	private HealthComponent _health;
+	private Animator _animator;
 
 	private SimpleTimer _stunTimer;
 	private Vector3 _spawnPos;
@@ -28,6 +29,7 @@ public class PlayerManager : MonoBehaviour
 		_health.Hit += OnHit;
 		_spawnPos = transform.position;
 		_respawnTimer = new SimpleTimer(TimeToRespawn);
+		_animator = GetComponent<Animator>();
 	}
 
 	private void Update ()
@@ -107,6 +109,16 @@ public class PlayerManager : MonoBehaviour
 		if(_stunTimer.IsExpired)
 		{
 			_stunTimer.Stop();
+		}
+
+		//doing animations
+		if(!_mover.IsJumping && rigidbody2D.velocity.x != 0f && _animator != null && !_animator.GetBool("isRunning"))
+		{
+			_animator.SetBool("isRunning", true);
+		}
+		else if(!_mover.IsJumping && rigidbody2D.velocity.x == 0f && _animator != null && _animator.GetBool("isRunning"))
+		{
+			_animator.SetBool("isRunning", false);
 		}
 	}
 

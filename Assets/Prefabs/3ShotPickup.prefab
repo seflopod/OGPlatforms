@@ -72,10 +72,14 @@ MonoBehaviour:
   Info:
     Name: 3Shot
     WeaponSprite: {fileID: 21300000, guid: 6abb659a5ac084341b3f1952c6da8ee3, type: 3}
+    UserInterfaceSprite: {fileID: 21300000, guid: 6abb659a5ac084341b3f1952c6da8ee3,
+      type: 3}
+    UserInterfaceBG: {fileID: 21300000, guid: 8ec99040fbe58504887b58996d5487bc, type: 3}
     RateOfFire: .300000012
     DamageDealt: 20
     BulletSprite: {fileID: 21300000, guid: 0978bf446f56c314093273b5305c58e2, type: 3}
     BulletSpeed: 150
+    BulletImpactPoolIndex: 0
     HasAmmo: 1
     StartAmmo: 50
 --- !u!212 &21285578

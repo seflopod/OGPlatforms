@@ -30,8 +30,15 @@ public class HealthComponent : MonoBehaviour
 			{
 				_curHealth = _maxHealth;
 			}
+
+			if(_curHealth <= 0)
+			{
+				OnDead(null);
+			}
 		}
 	}
+
+	public int MaxHealth { get { return _maxHealth; } }
 
 	private void Start()
 	{
