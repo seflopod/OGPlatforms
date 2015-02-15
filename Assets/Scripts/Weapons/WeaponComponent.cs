@@ -55,7 +55,6 @@ public class WeaponComponent : MonoBehaviour
 				go.layer = LayerMask.NameToLayer("player_bullets");
 			}
 		});
-		Debug.Log(_currentWeapon.Name);
 		_baseWeapon = _currentWeapon;
 	}
 
@@ -120,7 +119,14 @@ public class WeaponComponent : MonoBehaviour
 			BoxCollider2D box = bullet.collider2D as BoxCollider2D;
 			box.size = _currentWeapon.BulletSprite.bounds.size;
 			box.center = Vector2.zero;
-			bullet.GetComponent<BulletBehaviour>().DamageValue = _currentWeapon.DamageDealt;
+			BulletBehaviour bb = bullet.GetComponent<BulletBehaviour>();
+			bb.DamageValue = _currentWeapon.DamageDealt;
+			bb.ImpactPoolIndex = _currentWeapon.BulletImpactPoolIndex;
+
+			if(_currentWeapon.OverrideBulletLayer)
+			{
+				bullet.layer = LayerMask.NameToLayer(_currentWeapon.BulletLayerName);
+			}
 			bullet.rigidbody2D.velocity = _currentWeapon.BulletSpeed * _aimDir;
 			--_currentAmmo;
 			_fireTimer.Start();

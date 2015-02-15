@@ -14,4 +14,7 @@ public class WeaponInfo
 	public int BulletImpactPoolIndex = 0;
 	public bool HasAmmo = false;
 	public int StartAmmo = 10;
+	public Vector3 BulletStartOffset = Vector3.zero;
+	public bool OverrideBulletLayer = false;
+	public string BulletLayerName = "";
 }

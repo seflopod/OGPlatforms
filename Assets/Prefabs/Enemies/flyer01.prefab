@@ -158,6 +158,9 @@ MonoBehaviour:
     BulletImpactPoolIndex: 1
     HasAmmo: 0
     StartAmmo: 10
+    BulletStartOffset: {x: 0, y: 0, z: 0}
+    OverrideBulletLayer: 0
+    BulletLayerName: 
 --- !u!114 &11401394
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -217,7 +220,7 @@ MonoBehaviour:
   _startHealth: 100
   TakeDamageFromLayers:
     serializedVersion: 2
-    m_Bits: 24576
+    m_Bits: 90112
 --- !u!114 &11401400
 MonoBehaviour:
   m_ObjectHideFlags: 1

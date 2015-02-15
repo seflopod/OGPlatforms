@@ -44,6 +44,7 @@ MonoBehaviour:
   BulletImpactPrefabs:
   - {fileID: 128348, guid: b56be647cc8fe8b43bfc1f17d16c1558, type: 2}
   - {fileID: 188998, guid: a05605c26ae3d05489aa38f521185403, type: 2}
+  - {fileID: 177808, guid: b52ccc00f683e1249b31d01cc3264274, type: 2}
   BulletImpactPoolSize: 50
 --- !u!114 &11411372
 MonoBehaviour:
