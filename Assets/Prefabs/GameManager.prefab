@@ -41,6 +41,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BulletPrefab: {fileID: 169634, guid: 761c5a01b0740444ab398706fc814500, type: 2}
+  BulletImpactPrefabs:
+  - {fileID: 128348, guid: b56be647cc8fe8b43bfc1f17d16c1558, type: 2}
+  BulletImpactPoolSize: 50
 --- !u!114 &11411372
 MonoBehaviour:
   m_ObjectHideFlags: 1

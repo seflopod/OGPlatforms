@@ -61,7 +61,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 190168}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 18, y: -1, z: 0}
+  m_LocalPosition: {x: 22.8999996, y: 3.9000001, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 490172}
@@ -74,7 +74,7 @@ Transform:
   m_GameObject: {fileID: 190170}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -886, y: -151.309998, z: 0}
-  m_LocalScale: {x: .5, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 490172}
   m_Father: {fileID: 0}
@@ -86,8 +86,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 190172}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.8999996, y: -1.79999995, z: 0}
-  m_LocalScale: {x: 2, y: 1, z: 1}
+  m_LocalPosition: {x: -1, y: 6, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 490168}
   m_Father: {fileID: 490170}
@@ -161,6 +161,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HitStunTime: .100000001
   HitPushForce: 1000
+  TimeToRespawn: 3
 --- !u!114 &11490174
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -191,11 +192,11 @@ MonoBehaviour:
   BulletPoolSize: 300
   _currentWeapon:
     Name: blaster
-    WeaponSprite: {fileID: 21300000, guid: f1ec27274f741c044891cb954587e770, type: 3}
-    RateOfFire: .5
+    WeaponSprite: {fileID: 21300000, guid: ce6051acec0a2e8499938f1b05140782, type: 3}
+    RateOfFire: .200000003
     DamageDealt: 10
-    BulletSprite: {fileID: 21300000, guid: 934708b32574e4f488d87afa57361c7c, type: 3}
-    BulletSpeed: 200
+    BulletSprite: {fileID: 21300000, guid: 0978bf446f56c314093273b5305c58e2, type: 3}
+    BulletSpeed: 500
     HasAmmo: 0
     StartAmmo: 10
 --- !u!212 &21290168
@@ -218,7 +219,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 408390349
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e1ac3638a50acf946b24fa5d8891eea5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a26aecc7d24edb74baf4da8a589bc5ef, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21290170
 SpriteRenderer:
@@ -240,7 +241,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 408390349
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: f1ec27274f741c044891cb954587e770, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ce6051acec0a2e8499938f1b05140782, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
