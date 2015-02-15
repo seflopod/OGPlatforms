@@ -13,7 +13,7 @@ public class HealthPickup : AbstractPickup
 			renderer.enabled = false;
 			HasApplied = true;
 			player.gameObject.GetComponent<HealthComponent>().CurrentHealth += AmountHealed;
-			Destroy(gameObject);
+			GameManager.Instance.AddToDestroyQueue(gameObject);
 		}
 	}
 }

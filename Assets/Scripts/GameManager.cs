@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 using OgreToast.Utility;
 
 public class GameManager : Singleton<GameManager>
@@ -9,6 +10,10 @@ public class GameManager : Singleton<GameManager>
 	public int BulletImpactPoolSize = 50;
 
 	private GameObjectPool[] _bulletImpactPools;
+	private Queue<GameObject> _destructionQueue;
+	
+	private bool _isDestroying = false;
+	private int _queueSize = 100;
 
 	private void Start()
 	{
@@ -16,6 +21,16 @@ public class GameManager : Singleton<GameManager>
 		for(int i=0;i<_bulletImpactPools.Length;++i)
 		{
 			_bulletImpactPools[i] = GameObjectPool.CreateNewPool(BulletImpactPrefabs[i], BulletImpactPoolSize);
+		}
+		_destructionQueue = new Queue<GameObject>(_queueSize);
+	}
+
+	private void Update()
+	{
+		if(!_isDestroying && _destructionQueue.Count >= 3 * _queueSize / 4)
+		{
+			_isDestroying = true;
+			StartCoroutine(DestroyInQueue());
 		}
 	}
 
@@ -26,6 +41,23 @@ public class GameManager : Singleton<GameManager>
 			return null;
 		}
 		return _bulletImpactPools[poolIdx].GetGameObject();
+	}
+
+	public void AddToDestroyQueue(GameObject toDestroy)
+	{
+		_destructionQueue.Enqueue(toDestroy);
+	}
+
+	public IEnumerator DestroyInQueue()
+	{
+		_isDestroying = true;
+		while(_destructionQueue.Count > 0)
+		{
+			GameObject toDestroy = _destructionQueue.Dequeue();
+			GameObject.Destroy(toDestroy);
+			yield return null;
+		}
+		_isDestroying = false;
 	}
 
 }

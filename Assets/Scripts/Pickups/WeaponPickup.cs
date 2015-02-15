@@ -14,7 +14,7 @@ public class WeaponPickup : AbstractPickup
 			HasApplied = true;
 			WeaponComponent wc = player.transform.GetComponentInChildren<WeaponComponent>();
 			wc.CurrentWeapon = Info;
-			Destroy(gameObject);
+			GameManager.Instance.AddToDestroyQueue(gameObject);
 		}
 	}
 }
