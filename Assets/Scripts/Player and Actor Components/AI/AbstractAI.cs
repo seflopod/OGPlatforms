@@ -56,7 +56,12 @@ public abstract class AbstractAI : MonoBehaviour
 
 		
 		_attackExpireTimer = new SimpleTimer(TimeBeforeAttackExpires);
-		_weapon = transform.FindChild("gun").gameObject.GetComponent<WeaponComponent>();
+		Transform gunChild = transform.FindChild("gun");
+		if(gunChild != null)
+		{
+			_weapon = gunChild.gameObject.GetComponent<WeaponComponent>();
+		}
+
 		_stunTimer = new SimpleTimer(HitStunTime);
 		_health = GetComponent<HealthComponent>();
 		_health.Dead += OnDead;
@@ -139,7 +144,6 @@ public abstract class AbstractAI : MonoBehaviour
 		if(!isDying)
 		{
 			isDying = true;
-			_currentState = DeadState;
 			rigidbody2D.velocity = Vector2.zero;
 			Renderer[] renderers = GetComponentsInChildren<Renderer>();
 			Collider2D[] colliders = GetComponentsInChildren<Collider2D>();
