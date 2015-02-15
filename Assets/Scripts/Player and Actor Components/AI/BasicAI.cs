@@ -133,7 +133,6 @@ public class BasicAI : AbstractAI
 			Vector2 dirToTarget = (target.position - transform.position).normalized;
 			if(dirToTarget.y > 0.7f && dirToTarget.x != 0f && !_mover.IsJumping)
 			{
-				Debug.Log("Jump");
 				_mover.Jump();
 				dirToTarget = (target.position - transform.position).normalized;
 			}

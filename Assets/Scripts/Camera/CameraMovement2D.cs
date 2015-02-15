@@ -32,6 +32,7 @@ public class CameraMovement2D : MonoBehaviour
 	private bool _doHitShake = false;
 	private bool _doExplosionShake = false;
 	private bool _doMachineGunShake = false;
+	private bool _doOtherGunShake = false;
 	private bool _doRocketLaunchShake = false;
 
 	private Vector3 _shakeOffset;
@@ -54,6 +55,15 @@ public class CameraMovement2D : MonoBehaviour
 		{
 			hc.Hit += OnTargetHit;
 		}
+
+		WeaponComponent wc = target.gameObject.GetComponentInChildren<WeaponComponent>();
+		if(wc != null)
+		{
+			wc.FireWeapon += OnPlayerWeaponFire;
+		}
+
+		AbstractExplosionBehaviour.Explosion += OnExplosion;
+
 		_shakeTimer = new SimpleTimer();
 	}
 	
@@ -142,6 +152,15 @@ public class CameraMovement2D : MonoBehaviour
 			_doRocketLaunchShake = false;
 		}
 
+		if(_doOtherGunShake)
+		{
+			ShakeInfo otherShake = new ShakeInfo();
+			otherShake.ShakeMagnitude = 0.67f * MachineGunFireShake.ShakeMagnitude;
+			otherShake.ShakeTime = MachineGunFireShake.ShakeTime;
+			shakeInfo += otherShake;
+			_doOtherGunShake = false;
+		}
+
 		shakeInfo.ShakeTime = Mathf.Min (shakeInfo.ShakeTime, MaxShakeInfo.ShakeTime);
 		shakeInfo.ShakeMagnitude.x = Mathf.Min(shakeInfo.ShakeMagnitude.x, MaxShakeInfo.ShakeMagnitude.x);
 		shakeInfo.ShakeMagnitude.y = Mathf.Min(shakeInfo.ShakeMagnitude.y, MaxShakeInfo.ShakeMagnitude.y);
@@ -175,6 +194,15 @@ public class CameraMovement2D : MonoBehaviour
 				shakeInfo += RocketLaunchShake;
 				_doRocketLaunchShake = false;
 			}
+
+			if(_doOtherGunShake)
+			{
+				ShakeInfo otherShake = new ShakeInfo();
+				otherShake.ShakeMagnitude = 0.67f * MachineGunFireShake.ShakeMagnitude;
+				otherShake.ShakeTime = MachineGunFireShake.ShakeTime;
+				shakeInfo += otherShake;
+				_doOtherGunShake = false;
+			}
 			
 			shakeInfo.ShakeTime = Mathf.Min (shakeInfo.ShakeTime, MaxShakeInfo.ShakeTime);
 			shakeInfo.ShakeMagnitude.x = Mathf.Min(shakeInfo.ShakeMagnitude.x, MaxShakeInfo.ShakeMagnitude.x);
@@ -203,15 +231,22 @@ public class CameraMovement2D : MonoBehaviour
 		_startShake = !_isShaking && _doExplosionShake;
 	}
 
-	private void OnMachineGunFire(object sender, System.EventArgs e)
+	private void OnPlayerWeaponFire(object sender, WeaponInfo weaponInfo)
 	{
-		_doMachineGunShake = ShakeOnMachineGunFire;
-		_startShake = !_isShaking && _doMachineGunShake;
-	}
-
-	private void OnRocketLaunch(object sender, System.EventArgs e)
-	{
-		_doRocketLaunchShake = ShakeOnRocketLaunch;
-		_startShake = !_isShaking && _doRocketLaunchShake;
+		switch(weaponInfo.Name)
+		{
+		case "machineGun":
+			_doMachineGunShake = ShakeOnMachineGunFire;
+			_startShake = !_isShaking && _doMachineGunShake;
+			break;
+		case "rocket":
+			_doRocketLaunchShake = ShakeOnRocketLaunch;
+			_startShake = !_isShaking && _doRocketLaunchShake;
+			break;
+		default:
+			_doOtherGunShake = ShakeOnMachineGunFire;
+			_startShake = !_isShaking && _doOtherGunShake;
+			break;
+		}
 	}
 }
