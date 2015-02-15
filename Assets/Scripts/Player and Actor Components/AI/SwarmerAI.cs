@@ -203,6 +203,11 @@ public class SwarmerAI : BaseAI<SwarmerAI>
 		}
 	}
 
+	protected virtual void DeadState()
+	{
+
+	}
+
 	protected bool HasSensedSomething()
 	{
 		if(CheckForSomething)
@@ -229,7 +234,19 @@ public class SwarmerAI : BaseAI<SwarmerAI>
 		if(!_isDying)
 		{
 			_isDying = true;
-			Destroy (gameObject);
+			currentState = DeadState;
+			rigidbody2D.velocity = Vector2.zero;
+			Renderer[] renderers = GetComponentsInChildren<Renderer>();
+			Collider2D[] colliders = GetComponentsInChildren<Collider2D>();
+			for(int i=0;i<renderers.Length;++i)
+			{
+				renderers[i].enabled = false;
+			}
+			for(int i=0;i<colliders.Length;++i)
+			{
+				colliders[i].enabled = false;
+			}
+			GameManager.Instance.AddToDestroyQueue(gameObject);
 		}
 	}
 }
