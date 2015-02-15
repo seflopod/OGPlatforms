@@ -5,13 +5,13 @@ AnimatorController:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: bulletimpact1
+  m_Name: bullet
   serializedVersion: 2
   m_AnimatorParameters: []
   m_AnimatorLayers:
   - serializedVersion: 3
     m_Name: Base Layer
-    m_StateMachine: {fileID: 110702592}
+    m_StateMachine: {fileID: 110767726}
     m_Mask: {fileID: 0}
     m_BlendingMode: 0
     m_SyncedLayerIndex: -1
@@ -20,37 +20,34 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
---- !u!1102 &110202592
+--- !u!1102 &110267726
 State:
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: bulletImpact
+  m_Name: bullet_pulse
   m_Speed: 1
   m_CycleOffset: 0
   m_Motions:
-  - {fileID: 7400000, guid: 4761fd0cabb0df942a0fe6e6347af1c2, type: 2}
-  m_ParentStateMachine: {fileID: 110702592}
-  m_Position: {x: 240, y: 48, z: 0}
+  - {fileID: 7400000, guid: 97e107e605e41dc4aad5f34ccf6395d6, type: 2}
+  m_ParentStateMachine: {fileID: 110767726}
+  m_Position: {x: 276, y: -12, z: 0}
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
---- !u!1107 &110702592
+--- !u!1107 &110767726
 StateMachine:
   serializedVersion: 2
   m_ObjectHideFlags: 3
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Base Layer
-  m_DefaultState: {fileID: 110202592}
+  m_DefaultState: {fileID: 110267726}
   m_States:
-  - {fileID: 110202592}
+  - {fileID: 110267726}
   m_ChildStateMachine: []
   m_ChildStateMachinePosition: []
-  m_OrderedTransitions:
-    data:
-      first: {fileID: 110202592}
-      second: []
+  m_OrderedTransitions: {}
   m_MotionSetCount: 1
   m_AnyStatePosition: {x: 50, y: 20, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}

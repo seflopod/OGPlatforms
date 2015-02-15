@@ -46,7 +46,7 @@ public class WeaponComponent : MonoBehaviour
 		_fireTimer = new SimpleTimer(_currentWeapon.RateOfFire);
 
 		_bulletPool = GameObjectPool.CreateNewPool(GameManager.Instance.BulletPrefab, BulletPoolSize, delegate(GameObject go) {
-			if(transform.parent.gameObject.layer == LayerMask.NameToLayer("Enemies"))
+			if(transform.parent.gameObject.layer == LayerMask.NameToLayer("Enemies") || transform.parent.gameObject.layer == LayerMask.NameToLayer("Flying_Enemies"))
 			{
 				go.layer = LayerMask.NameToLayer("enemy_bullets");
 			}
@@ -112,6 +112,7 @@ public class WeaponComponent : MonoBehaviour
 			bullet.SetActive(true);
 			bullet.transform.position = _bulletStartTrans.position;
 			bullet.transform.rotation = transform.rotation;
+
 			bullet.renderer.enabled = true;
 			bullet.GetComponent<SpriteRenderer>().sprite = _currentWeapon.BulletSprite;
 			bullet.collider2D.enabled = true;
