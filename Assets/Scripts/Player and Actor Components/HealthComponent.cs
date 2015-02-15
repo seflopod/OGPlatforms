@@ -33,6 +33,8 @@ public class HealthComponent : MonoBehaviour
 		}
 	}
 
+	public int MaxHealth { get { return _maxHealth; } }
+
 	private void Start()
 	{
 		CurrentHealth = _startHealth;

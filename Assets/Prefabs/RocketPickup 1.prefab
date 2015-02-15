@@ -72,10 +72,14 @@ MonoBehaviour:
   Info:
     Name: rocket
     WeaponSprite: {fileID: 21300000, guid: 46db43184f7b37741bbda7338624ac69, type: 3}
+    UserInterfaceSprite: {fileID: 21300000, guid: 46db43184f7b37741bbda7338624ac69,
+      type: 3}
+    UserInterfaceBG: {fileID: 21300000, guid: ce7a003b701369d4286346981ca3f19e, type: 3}
     RateOfFire: 1
     DamageDealt: 100
     BulletSprite: {fileID: 21300000, guid: 0978bf446f56c314093273b5305c58e2, type: 3}
     BulletSpeed: 100
+    BulletImpactPoolIndex: 0
     HasAmmo: 1
     StartAmmo: 3
 --- !u!212 &21224306

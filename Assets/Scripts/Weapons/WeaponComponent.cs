@@ -55,6 +55,7 @@ public class WeaponComponent : MonoBehaviour
 				go.layer = LayerMask.NameToLayer("player_bullets");
 			}
 		});
+		Debug.Log(_currentWeapon.Name);
 		_baseWeapon = _currentWeapon;
 	}
 
