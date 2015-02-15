@@ -54,13 +54,16 @@ public class BasicAI : BaseAI<BasicAI>
 		{
 			currentState = PatrolState;
 		}
+		else
+		{
+			currentState = IdleState;
+		}
 
 		if(MaxObjectsToFind <= 0)
 		{
 			MaxObjectsToFind = 1;
 		}
 		_sensedColliders = new Collider2D[MaxObjectsToFind];
-		_realSensorCenter = (Vector2)transform.position + SensorCenter;
 
 		_attackExpireTimer = new SimpleTimer(TimeBeforeAttackExpires);
 		_weapon = transform.FindChild("gun").gameObject.GetComponent<WeaponComponent>();
@@ -73,6 +76,7 @@ public class BasicAI : BaseAI<BasicAI>
 		{
 			SensorCenter.x *= -1;
 		}
+		_realSensorCenter = (Vector2)transform.position + SensorCenter;
 	}
 
 	protected new void Update()
@@ -124,6 +128,16 @@ public class BasicAI : BaseAI<BasicAI>
 	protected virtual void OnCollisionExit2D(Collision2D collision)
 	{
 		_mover.CheckCollisionExit(collision);
+	}
+
+	protected override void IdleState()
+	{
+		//check for player and change state as needed.
+		if(HasSensedSomething() && CanAttack)
+		{
+			rigidbody2D.velocity = Vector2.zero;
+			currentState = AttackState;
+		}
 	}
 
 	protected virtual void PatrolState()
@@ -228,5 +242,15 @@ public class BasicAI : BaseAI<BasicAI>
 			_isDying = true;
 			Destroy (gameObject);
 		}
+	}
+
+	public void DoPatrol()
+	{
+		currentState = PatrolState;
+	}
+
+	public void DoIdle()
+	{
+		currentState = IdleState;
 	}
 }

@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 428348}
   - 212: {fileID: 21228348}
   - 95: {fileID: 9528348}
+  - 114: {fileID: 11453116}
   m_Layer: 0
   m_Name: bulletimpact1
   m_TagString: Untagged
@@ -44,6 +45,17 @@ Animator:
   m_ApplyRootMotion: 1
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &11453116
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 128348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ca16d07f4169564b84680b5c16f0e41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &21228348
 SpriteRenderer:
   m_ObjectHideFlags: 1

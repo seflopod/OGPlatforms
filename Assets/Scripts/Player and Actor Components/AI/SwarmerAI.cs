@@ -121,6 +121,18 @@ public class SwarmerAI : BaseAI<SwarmerAI>
 		}
 	}
 
+	protected virtual void OnCollisionEnter2D(Collision2D collision)
+	{
+		GameObject collisionGO = collision.gameObject;
+		_mover.CheckCollisionEnter(collisionGO);
+		_health.CheckCollisionEnter(collisionGO);
+	}
+	
+	protected virtual void OnCollisionExit2D(Collision2D collision)
+	{
+		_mover.CheckCollisionExit(collision);
+	}
+
 	protected virtual void PatrolAndAttackState()
 	{
 		if(Mathf.Abs(transform.position.x - _moveTarget.x) < 1f && !_pauseTimer.IsRunning)
