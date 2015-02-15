@@ -17,4 +17,5 @@ public class WeaponInfo
 	public Vector3 BulletStartOffset = Vector3.zero;
 	public bool OverrideBulletLayer = false;
 	public string BulletLayerName = "";
+	public AudioClip FireSound;
 }

@@ -13,7 +13,7 @@ public class GameManager : Singleton<GameManager>
 	private Queue<GameObject> _destructionQueue;
 	
 	private bool _isDestroying = false;
-	private int _queueSize = 100;
+	private int _queueSize = 50;
 
 	private void Start()
 	{
@@ -25,9 +25,9 @@ public class GameManager : Singleton<GameManager>
 		_destructionQueue = new Queue<GameObject>(_queueSize);
 	}
 
-	private void Update()
+	private void LateUpdate()
 	{
-		if(!_isDestroying && _destructionQueue.Count >= 3 * _queueSize / 4)
+		if(!_isDestroying && _destructionQueue.Count >= _queueSize / 2)
 		{
 			_isDestroying = true;
 			StartCoroutine(DestroyInQueue());

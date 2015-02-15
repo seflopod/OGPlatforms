@@ -94,7 +94,7 @@ public class PlayerManager : MonoBehaviour
 
 				if(Input.GetButton("Fire1"))
 				{
-					_weapon.Fire();
+					_weapon.Fire(rigidbody2D.velocity);
 				}
 			}
 		}

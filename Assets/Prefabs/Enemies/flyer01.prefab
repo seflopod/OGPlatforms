@@ -10,6 +10,7 @@ GameObject:
   - 4: {fileID: 401392}
   - 212: {fileID: 21201392}
   - 114: {fileID: 11401392}
+  - 82: {fileID: 8287536}
   m_Layer: 0
   m_Name: gun
   m_TagString: Untagged
@@ -87,7 +88,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 101396}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -740.900024, y: -65, z: 0}
+  m_LocalPosition: {x: 195.070969, y: -92.1740875, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 401392}
@@ -119,6 +120,64 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_Size: {x: 24, y: 28}
   m_Center: {x: 0, y: 0}
+--- !u!82 &8287536
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 101392}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: .349999994
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!95 &9501392
 Animator:
   serializedVersion: 3
@@ -161,6 +220,7 @@ MonoBehaviour:
     BulletStartOffset: {x: 0, y: 0, z: 0}
     OverrideBulletLayer: 0
     BulletLayerName: 
+    FireSound: {fileID: 0}
 --- !u!114 &11401394
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -183,16 +243,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd9ad0356078850419188dc27187a047, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DoPatrolAtStart: 1
-  ShowEndPointsInEditor: 1
-  IsMovingRight: 1
-  IsMovingUp: 1
-  HorizontalDistRange: {x: 16, y: 128}
-  VerticalDistRange: {x: 16, y: 64}
-  MinScreenPct: .100000001
-  MaxScreenPct: .899999976
-  PatrolSpeed: 25
-  PauseTimeAtEdge: .100000001
   CheckForSomething: 1
   ShowSensorInEditor: 1
   SensorCenter: {x: 0, y: 0}
@@ -205,6 +255,16 @@ MonoBehaviour:
   TimeBeforeAttackExpires: 10
   HitStunTime: .100000001
   HitPushForce: 100
+  DoPatrolAtStart: 1
+  ShowEndPointsInEditor: 1
+  IsMovingRight: 1
+  IsMovingUp: 1
+  HorizontalDistRange: {x: 16, y: 128}
+  VerticalDistRange: {x: 16, y: 64}
+  MinScreenPct: .100000001
+  MaxScreenPct: .899999976
+  PatrolSpeed: 25
+  PauseTimeAtEdge: .100000001
 --- !u!114 &11401398
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using OgreToast.Utility;
 
-[RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(SpriteRenderer), typeof(AudioSource))]
 public class WeaponComponent : MonoBehaviour
 {
 	public delegate void WeaponFireHandler(object sender, WeaponInfo weaponInfo);
@@ -60,6 +60,10 @@ public class WeaponComponent : MonoBehaviour
 				go.layer = LayerMask.NameToLayer("player_bullets");
 			}
 		});
+
+		AudioSource asrc = GetComponent<AudioSource>();
+		asrc.playOnAwake = false;
+		asrc.loop = false;
 	}
 
 	public void Aim(Vector2 dir)
@@ -107,7 +111,7 @@ public class WeaponComponent : MonoBehaviour
 		transform.localRotation = Quaternion.Euler(0f, 0f, angle);
 	}
 
-	public void Fire()
+	public void Fire(Vector2 currentVelocity)
 	{
 		if((!_currentWeapon.HasAmmo || _currentAmmo > 0) && (!_fireTimer.IsRunning || _fireTimer.IsExpired))
 		{
@@ -131,7 +135,13 @@ public class WeaponComponent : MonoBehaviour
 			{
 				bullet.layer = LayerMask.NameToLayer(_currentWeapon.BulletLayerName);
 			}
-			bullet.rigidbody2D.velocity = _currentWeapon.BulletSpeed * _aimDir;
+			bullet.rigidbody2D.velocity = _currentWeapon.BulletSpeed * _aimDir + currentVelocity;
+
+			if(_currentWeapon.FireSound != null)
+			{
+				audio.PlayOneShot(_currentWeapon.FireSound);
+			}
+
 			--_currentAmmo;
 			_fireTimer.Start();
 

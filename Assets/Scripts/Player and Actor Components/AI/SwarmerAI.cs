@@ -146,7 +146,7 @@ public class SwarmerAI : AbstractAI
 			if(_weapon != null)
 			{
 				_weapon.Aim(dirToTarget);
-				_weapon.Fire();
+				_weapon.Fire(rigidbody2D.velocity);
 			}
 		}
 	}

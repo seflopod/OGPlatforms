@@ -13,7 +13,7 @@ GameObject:
   - 61: {fileID: 6185578}
   - 114: {fileID: 11485578}
   m_Layer: 11
-  m_Name: 3ShotPickup
+  m_Name: split_gun_pickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -82,6 +82,10 @@ MonoBehaviour:
     BulletImpactPoolIndex: 0
     HasAmmo: 1
     StartAmmo: 50
+    BulletStartOffset: {x: 0, y: 0, z: 0}
+    OverrideBulletLayer: 0
+    BulletLayerName: 
+    FireSound: {fileID: 0}
 --- !u!212 &21285578
 SpriteRenderer:
   m_ObjectHideFlags: 1
