@@ -11,7 +11,7 @@ public class BulletBehaviour : MonoBehaviour
 
 	private void OnBecameInvisible()
 	{
-		if(!_isDying)
+		if(!_isDying && Application.isPlaying)
 		{
 			Kill();
 		}
