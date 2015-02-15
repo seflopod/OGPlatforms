@@ -353,12 +353,18 @@ MonoBehaviour:
   _currentWeapon:
     Name: 
     WeaponSprite: {fileID: 0}
+    UserInterfaceSprite: {fileID: 0}
+    UserInterfaceBG: {fileID: 0}
     RateOfFire: .100000001
     DamageDealt: 5
     BulletSprite: {fileID: 21300000, guid: 934708b32574e4f488d87afa57361c7c, type: 3}
     BulletSpeed: 200
+    BulletImpactPoolIndex: 0
     HasAmmo: 0
     StartAmmo: 10
+    BulletStartOffset: {x: 0, y: 0, z: 0}
+    OverrideBulletLayer: 0
+    BulletLayerName: 
 --- !u!212 &62785985
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -858,12 +864,18 @@ MonoBehaviour:
   _currentWeapon:
     Name: 
     WeaponSprite: {fileID: 0}
+    UserInterfaceSprite: {fileID: 0}
+    UserInterfaceBG: {fileID: 0}
     RateOfFire: .100000001
     DamageDealt: 5
     BulletSprite: {fileID: 21300000, guid: 934708b32574e4f488d87afa57361c7c, type: 3}
     BulletSpeed: 200
+    BulletImpactPoolIndex: 0
     HasAmmo: 0
     StartAmmo: 10
+    BulletStartOffset: {x: 0, y: 0, z: 0}
+    OverrideBulletLayer: 0
+    BulletLayerName: 
 --- !u!212 &186831376
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -944,12 +956,18 @@ MonoBehaviour:
   _currentWeapon:
     Name: 
     WeaponSprite: {fileID: 0}
+    UserInterfaceSprite: {fileID: 0}
+    UserInterfaceBG: {fileID: 0}
     RateOfFire: .100000001
     DamageDealt: 5
     BulletSprite: {fileID: 21300000, guid: 934708b32574e4f488d87afa57361c7c, type: 3}
     BulletSpeed: 200
+    BulletImpactPoolIndex: 0
     HasAmmo: 0
     StartAmmo: 10
+    BulletStartOffset: {x: 0, y: 0, z: 0}
+    OverrideBulletLayer: 0
+    BulletLayerName: 
 --- !u!212 &192176339
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1592,12 +1610,18 @@ MonoBehaviour:
   _currentWeapon:
     Name: 
     WeaponSprite: {fileID: 0}
+    UserInterfaceSprite: {fileID: 0}
+    UserInterfaceBG: {fileID: 0}
     RateOfFire: .100000001
     DamageDealt: 5
     BulletSprite: {fileID: 21300000, guid: 934708b32574e4f488d87afa57361c7c, type: 3}
     BulletSpeed: 200
+    BulletImpactPoolIndex: 0
     HasAmmo: 0
     StartAmmo: 10
+    BulletStartOffset: {x: 0, y: 0, z: 0}
+    OverrideBulletLayer: 0
+    BulletLayerName: 
 --- !u!212 &286484271
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1842,12 +1866,18 @@ MonoBehaviour:
   _currentWeapon:
     Name: 
     WeaponSprite: {fileID: 0}
+    UserInterfaceSprite: {fileID: 0}
+    UserInterfaceBG: {fileID: 0}
     RateOfFire: .100000001
     DamageDealt: 5
     BulletSprite: {fileID: 21300000, guid: 934708b32574e4f488d87afa57361c7c, type: 3}
     BulletSpeed: 200
+    BulletImpactPoolIndex: 0
     HasAmmo: 0
     StartAmmo: 10
+    BulletStartOffset: {x: 0, y: 0, z: 0}
+    OverrideBulletLayer: 0
+    BulletLayerName: 
 --- !u!212 &354437472
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2151,6 +2181,8 @@ MonoBehaviour:
   BulletPrefab: {fileID: 169634, guid: 761c5a01b0740444ab398706fc814500, type: 2}
   BulletImpactPrefabs:
   - {fileID: 128348, guid: b56be647cc8fe8b43bfc1f17d16c1558, type: 2}
+  - {fileID: 188998, guid: a05605c26ae3d05489aa38f521185403, type: 2}
+  - {fileID: 177808, guid: b52ccc00f683e1249b31d01cc3264274, type: 2}
   BulletImpactPoolSize: 50
 --- !u!4 &414543302
 Transform:
@@ -2443,12 +2475,18 @@ MonoBehaviour:
   _currentWeapon:
     Name: 
     WeaponSprite: {fileID: 0}
+    UserInterfaceSprite: {fileID: 0}
+    UserInterfaceBG: {fileID: 0}
     RateOfFire: .100000001
     DamageDealt: 5
     BulletSprite: {fileID: 21300000, guid: 934708b32574e4f488d87afa57361c7c, type: 3}
     BulletSpeed: 200
+    BulletImpactPoolIndex: 0
     HasAmmo: 0
     StartAmmo: 10
+    BulletStartOffset: {x: 0, y: 0, z: 0}
+    OverrideBulletLayer: 0
+    BulletLayerName: 
 --- !u!212 &442251628
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2968,12 +3006,18 @@ MonoBehaviour:
   _currentWeapon:
     Name: 
     WeaponSprite: {fileID: 0}
+    UserInterfaceSprite: {fileID: 0}
+    UserInterfaceBG: {fileID: 0}
     RateOfFire: .100000001
     DamageDealt: 5
     BulletSprite: {fileID: 21300000, guid: 934708b32574e4f488d87afa57361c7c, type: 3}
     BulletSpeed: 200
+    BulletImpactPoolIndex: 0
     HasAmmo: 0
     StartAmmo: 10
+    BulletStartOffset: {x: 0, y: 0, z: 0}
+    OverrideBulletLayer: 0
+    BulletLayerName: 
 --- !u!212 &505351432
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3987,7 +4031,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1226140045}
   m_Father: {fileID: 0}
   m_RootOrder: 39
 --- !u!1 &623706308
@@ -4431,12 +4476,19 @@ MonoBehaviour:
   Info:
     Name: machineGun
     WeaponSprite: {fileID: 21300000, guid: 8ac0b5014ea3c2c438dc0abebd61378d, type: 3}
+    UserInterfaceSprite: {fileID: 21300000, guid: 8ac0b5014ea3c2c438dc0abebd61378d,
+      type: 3}
+    UserInterfaceBG: {fileID: 21300000, guid: 231449ac50ccaf4468a479c61698da7f, type: 3}
     RateOfFire: .0700000003
     DamageDealt: 20
     BulletSprite: {fileID: 21300000, guid: 0978bf446f56c314093273b5305c58e2, type: 3}
     BulletSpeed: 200
+    BulletImpactPoolIndex: 0
     HasAmmo: 1
     StartAmmo: 150
+    BulletStartOffset: {x: 0, y: 0, z: 0}
+    OverrideBulletLayer: 0
+    BulletLayerName: 
 --- !u!61 &735521965
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4545,12 +4597,18 @@ MonoBehaviour:
   _currentWeapon:
     Name: 
     WeaponSprite: {fileID: 0}
+    UserInterfaceSprite: {fileID: 0}
+    UserInterfaceBG: {fileID: 0}
     RateOfFire: .100000001
     DamageDealt: 5
     BulletSprite: {fileID: 21300000, guid: 934708b32574e4f488d87afa57361c7c, type: 3}
     BulletSpeed: 200
+    BulletImpactPoolIndex: 0
     HasAmmo: 0
     StartAmmo: 10
+    BulletStartOffset: {x: 0, y: 0, z: 0}
+    OverrideBulletLayer: 0
+    BulletLayerName: 
 --- !u!212 &750533756
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5256,12 +5314,18 @@ MonoBehaviour:
   _currentWeapon:
     Name: 
     WeaponSprite: {fileID: 0}
+    UserInterfaceSprite: {fileID: 0}
+    UserInterfaceBG: {fileID: 0}
     RateOfFire: .100000001
     DamageDealt: 5
     BulletSprite: {fileID: 21300000, guid: 934708b32574e4f488d87afa57361c7c, type: 3}
     BulletSpeed: 200
+    BulletImpactPoolIndex: 0
     HasAmmo: 0
     StartAmmo: 10
+    BulletStartOffset: {x: 0, y: 0, z: 0}
+    OverrideBulletLayer: 0
+    BulletLayerName: 
 --- !u!212 &860490792
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5697,12 +5761,18 @@ MonoBehaviour:
   _currentWeapon:
     Name: 
     WeaponSprite: {fileID: 0}
+    UserInterfaceSprite: {fileID: 0}
+    UserInterfaceBG: {fileID: 0}
     RateOfFire: .100000001
     DamageDealt: 5
     BulletSprite: {fileID: 21300000, guid: 934708b32574e4f488d87afa57361c7c, type: 3}
     BulletSpeed: 200
+    BulletImpactPoolIndex: 0
     HasAmmo: 0
     StartAmmo: 10
+    BulletStartOffset: {x: 0, y: 0, z: 0}
+    OverrideBulletLayer: 0
+    BulletLayerName: 
 --- !u!212 &953562126
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6099,12 +6169,19 @@ MonoBehaviour:
   Info:
     Name: 3Shot
     WeaponSprite: {fileID: 21300000, guid: 6abb659a5ac084341b3f1952c6da8ee3, type: 3}
+    UserInterfaceSprite: {fileID: 21300000, guid: 6abb659a5ac084341b3f1952c6da8ee3,
+      type: 3}
+    UserInterfaceBG: {fileID: 21300000, guid: 8ec99040fbe58504887b58996d5487bc, type: 3}
     RateOfFire: .300000012
     DamageDealt: 20
     BulletSprite: {fileID: 21300000, guid: 0978bf446f56c314093273b5305c58e2, type: 3}
     BulletSpeed: 150
+    BulletImpactPoolIndex: 0
     HasAmmo: 1
     StartAmmo: 50
+    BulletStartOffset: {x: 0, y: 0, z: 0}
+    OverrideBulletLayer: 0
+    BulletLayerName: 
 --- !u!61 &1042107948
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -6313,12 +6390,18 @@ MonoBehaviour:
   _currentWeapon:
     Name: 
     WeaponSprite: {fileID: 0}
+    UserInterfaceSprite: {fileID: 0}
+    UserInterfaceBG: {fileID: 0}
     RateOfFire: .100000001
     DamageDealt: 5
     BulletSprite: {fileID: 21300000, guid: 934708b32574e4f488d87afa57361c7c, type: 3}
     BulletSpeed: 200
+    BulletImpactPoolIndex: 0
     HasAmmo: 0
     StartAmmo: 10
+    BulletStartOffset: {x: 0, y: 0, z: 0}
+    OverrideBulletLayer: 0
+    BulletLayerName: 
 --- !u!212 &1063300975
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6419,12 +6502,18 @@ MonoBehaviour:
   _currentWeapon:
     Name: 
     WeaponSprite: {fileID: 0}
+    UserInterfaceSprite: {fileID: 0}
+    UserInterfaceBG: {fileID: 0}
     RateOfFire: .100000001
     DamageDealt: 5
     BulletSprite: {fileID: 21300000, guid: 934708b32574e4f488d87afa57361c7c, type: 3}
     BulletSpeed: 200
+    BulletImpactPoolIndex: 0
     HasAmmo: 0
     StartAmmo: 10
+    BulletStartOffset: {x: 0, y: 0, z: 0}
+    OverrideBulletLayer: 0
+    BulletLayerName: 
 --- !u!212 &1075613551
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6642,12 +6731,18 @@ MonoBehaviour:
   _currentWeapon:
     Name: 
     WeaponSprite: {fileID: 0}
+    UserInterfaceSprite: {fileID: 0}
+    UserInterfaceBG: {fileID: 0}
     RateOfFire: .100000001
     DamageDealt: 5
     BulletSprite: {fileID: 21300000, guid: 934708b32574e4f488d87afa57361c7c, type: 3}
     BulletSpeed: 200
+    BulletImpactPoolIndex: 0
     HasAmmo: 0
     StartAmmo: 10
+    BulletStartOffset: {x: 0, y: 0, z: 0}
+    OverrideBulletLayer: 0
+    BulletLayerName: 
 --- !u!212 &1097034152
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6774,12 +6869,18 @@ MonoBehaviour:
   _currentWeapon:
     Name: 
     WeaponSprite: {fileID: 0}
+    UserInterfaceSprite: {fileID: 0}
+    UserInterfaceBG: {fileID: 0}
     RateOfFire: .100000001
     DamageDealt: 5
     BulletSprite: {fileID: 21300000, guid: 934708b32574e4f488d87afa57361c7c, type: 3}
     BulletSpeed: 200
+    BulletImpactPoolIndex: 0
     HasAmmo: 0
     StartAmmo: 10
+    BulletStartOffset: {x: 0, y: 0, z: 0}
+    OverrideBulletLayer: 0
+    BulletLayerName: 
 --- !u!212 &1163912202
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7232,6 +7333,56 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 36
+--- !u!1 &1226140043
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1226140045}
+  - 212: {fileID: 1226140044}
+  m_Layer: 0
+  m_Name: Scenic Backdrop
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &1226140044
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1226140043}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: fefef56a604e3174c8edcb4b33adcf52, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!4 &1226140045
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1226140043}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 617468772}
+  m_RootOrder: 0
 --- !u!1 &1238168110
 GameObject:
   m_ObjectHideFlags: 0
@@ -7366,12 +7517,18 @@ MonoBehaviour:
   _currentWeapon:
     Name: 
     WeaponSprite: {fileID: 0}
+    UserInterfaceSprite: {fileID: 0}
+    UserInterfaceBG: {fileID: 0}
     RateOfFire: .100000001
     DamageDealt: 5
     BulletSprite: {fileID: 21300000, guid: 934708b32574e4f488d87afa57361c7c, type: 3}
     BulletSpeed: 200
+    BulletImpactPoolIndex: 0
     HasAmmo: 0
     StartAmmo: 10
+    BulletStartOffset: {x: 0, y: 0, z: 0}
+    OverrideBulletLayer: 0
+    BulletLayerName: 
 --- !u!212 &1239653434
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7714,6 +7871,7 @@ GameObject:
   - 114: {fileID: 1320319389}
   - 114: {fileID: 1320319394}
   - 114: {fileID: 1320319395}
+  - 95: {fileID: 1320319396}
   m_Layer: 8
   m_Name: player01
   m_TagString: Player
@@ -7837,6 +7995,22 @@ MonoBehaviour:
   TakeDamageFromLayers:
     serializedVersion: 2
     m_Bits: 17408
+--- !u!95 &1320319396
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 9518776, guid: 588da7bd6d85028469987ac2ae5de815,
+    type: 2}
+  m_PrefabInternal: {fileID: 397526021}
+  m_GameObject: {fileID: 1320319388}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 85e5f36895af9044db2086ed2c4e1cff, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1320654461
 GameObject:
   m_ObjectHideFlags: 0
@@ -8234,12 +8408,19 @@ MonoBehaviour:
   _currentWeapon:
     Name: blaster
     WeaponSprite: {fileID: 21300000, guid: ce6051acec0a2e8499938f1b05140782, type: 3}
+    UserInterfaceSprite: {fileID: 21300000, guid: da10d96146a840e42a73221db0b5ddb7,
+      type: 3}
+    UserInterfaceBG: {fileID: 21300000, guid: da10d96146a840e42a73221db0b5ddb7, type: 3}
     RateOfFire: .200000003
     DamageDealt: 10
     BulletSprite: {fileID: 21300000, guid: 0978bf446f56c314093273b5305c58e2, type: 3}
     BulletSpeed: 500
+    BulletImpactPoolIndex: 0
     HasAmmo: 0
     StartAmmo: 10
+    BulletStartOffset: {x: 22.8999996, y: 3.9000001, z: 0}
+    OverrideBulletLayer: 0
+    BulletLayerName: 
 --- !u!212 &1365961193
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8387,12 +8568,19 @@ MonoBehaviour:
   Info:
     Name: rocket
     WeaponSprite: {fileID: 21300000, guid: 46db43184f7b37741bbda7338624ac69, type: 3}
+    UserInterfaceSprite: {fileID: 21300000, guid: 46db43184f7b37741bbda7338624ac69,
+      type: 3}
+    UserInterfaceBG: {fileID: 21300000, guid: ce7a003b701369d4286346981ca3f19e, type: 3}
     RateOfFire: 1
     DamageDealt: 100
     BulletSprite: {fileID: 21300000, guid: 0978bf446f56c314093273b5305c58e2, type: 3}
     BulletSpeed: 100
+    BulletImpactPoolIndex: 2
     HasAmmo: 1
     StartAmmo: 3
+    BulletStartOffset: {x: 0, y: 0, z: 0}
+    OverrideBulletLayer: 1
+    BulletLayerName: player_fired_rockets
 --- !u!61 &1393173015
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -8532,12 +8720,18 @@ MonoBehaviour:
   _currentWeapon:
     Name: 
     WeaponSprite: {fileID: 0}
+    UserInterfaceSprite: {fileID: 0}
+    UserInterfaceBG: {fileID: 0}
     RateOfFire: .100000001
     DamageDealt: 5
     BulletSprite: {fileID: 21300000, guid: 934708b32574e4f488d87afa57361c7c, type: 3}
     BulletSpeed: 200
+    BulletImpactPoolIndex: 0
     HasAmmo: 0
     StartAmmo: 10
+    BulletStartOffset: {x: 0, y: 0, z: 0}
+    OverrideBulletLayer: 0
+    BulletLayerName: 
 --- !u!212 &1400260352
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10212,12 +10406,18 @@ MonoBehaviour:
   _currentWeapon:
     Name: 
     WeaponSprite: {fileID: 0}
+    UserInterfaceSprite: {fileID: 0}
+    UserInterfaceBG: {fileID: 0}
     RateOfFire: .100000001
     DamageDealt: 5
     BulletSprite: {fileID: 21300000, guid: 934708b32574e4f488d87afa57361c7c, type: 3}
     BulletSpeed: 200
+    BulletImpactPoolIndex: 0
     HasAmmo: 0
     StartAmmo: 10
+    BulletStartOffset: {x: 0, y: 0, z: 0}
+    OverrideBulletLayer: 0
+    BulletLayerName: 
 --- !u!212 &1662978586
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -11299,12 +11499,18 @@ MonoBehaviour:
   _currentWeapon:
     Name: 
     WeaponSprite: {fileID: 0}
+    UserInterfaceSprite: {fileID: 0}
+    UserInterfaceBG: {fileID: 0}
     RateOfFire: .100000001
     DamageDealt: 5
     BulletSprite: {fileID: 21300000, guid: 934708b32574e4f488d87afa57361c7c, type: 3}
     BulletSpeed: 200
+    BulletImpactPoolIndex: 0
     HasAmmo: 0
     StartAmmo: 10
+    BulletStartOffset: {x: 0, y: 0, z: 0}
+    OverrideBulletLayer: 0
+    BulletLayerName: 
 --- !u!212 &1820822298
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13103,12 +13309,18 @@ MonoBehaviour:
   _currentWeapon:
     Name: 
     WeaponSprite: {fileID: 0}
+    UserInterfaceSprite: {fileID: 0}
+    UserInterfaceBG: {fileID: 0}
     RateOfFire: .100000001
     DamageDealt: 5
     BulletSprite: {fileID: 21300000, guid: 934708b32574e4f488d87afa57361c7c, type: 3}
     BulletSpeed: 200
+    BulletImpactPoolIndex: 0
     HasAmmo: 0
     StartAmmo: 10
+    BulletStartOffset: {x: 0, y: 0, z: 0}
+    OverrideBulletLayer: 0
+    BulletLayerName: 
 --- !u!212 &2114735165
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13163,12 +13375,18 @@ MonoBehaviour:
   _currentWeapon:
     Name: 
     WeaponSprite: {fileID: 0}
+    UserInterfaceSprite: {fileID: 0}
+    UserInterfaceBG: {fileID: 0}
     RateOfFire: .100000001
     DamageDealt: 5
     BulletSprite: {fileID: 21300000, guid: 934708b32574e4f488d87afa57361c7c, type: 3}
     BulletSpeed: 200
+    BulletImpactPoolIndex: 0
     HasAmmo: 0
     StartAmmo: 10
+    BulletStartOffset: {x: 0, y: 0, z: 0}
+    OverrideBulletLayer: 0
+    BulletLayerName: 
 --- !u!212 &2116067200
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -13475,12 +13693,18 @@ MonoBehaviour:
   _currentWeapon:
     Name: 
     WeaponSprite: {fileID: 0}
+    UserInterfaceSprite: {fileID: 0}
+    UserInterfaceBG: {fileID: 0}
     RateOfFire: .100000001
     DamageDealt: 5
     BulletSprite: {fileID: 21300000, guid: 934708b32574e4f488d87afa57361c7c, type: 3}
     BulletSpeed: 200
+    BulletImpactPoolIndex: 0
     HasAmmo: 0
     StartAmmo: 10
+    BulletStartOffset: {x: 0, y: 0, z: 0}
+    OverrideBulletLayer: 0
+    BulletLayerName: 
 --- !u!212 &2131512915
 SpriteRenderer:
   m_ObjectHideFlags: 0
