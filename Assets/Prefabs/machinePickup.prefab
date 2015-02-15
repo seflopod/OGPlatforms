@@ -13,7 +13,7 @@ GameObject:
   - 61: {fileID: 6120486}
   - 114: {fileID: 11420486}
   m_Layer: 11
-  m_Name: weaponPickup
+  m_Name: machinePickup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,7 +26,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 120486}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -684.799988, y: -146.5, z: 0}
+  m_LocalPosition: {x: -775.5, y: -147.699997, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -70,9 +70,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DropSpeed: -10
   Info:
-    Name: machine gun
-    WeaponSprite: {fileID: 21300000, guid: 5deaa3288717db2458ecb756a25ae7f9, type: 3}
-    RateOfFire: .00100000005
+    Name: machineGun
+    WeaponSprite: {fileID: 21300000, guid: 8ac0b5014ea3c2c438dc0abebd61378d, type: 3}
+    RateOfFire: .00999999978
     DamageDealt: 20
     BulletSprite: {fileID: 21300000, guid: 934708b32574e4f488d87afa57361c7c, type: 3}
     BulletSpeed: 200
@@ -98,7 +98,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 408390349
   m_SortingOrder: -1
-  m_Sprite: {fileID: 21300000, guid: 0082dfb02bd59154cb7788aa7944911f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8ac0b5014ea3c2c438dc0abebd61378d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
