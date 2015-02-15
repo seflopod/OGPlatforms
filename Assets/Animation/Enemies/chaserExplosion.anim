@@ -1,0 +1,197 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!74 &7400000
+AnimationClip:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: chaserExplosion
+  serializedVersion: 4
+  m_AnimationType: 2
+  m_Compressed: 0
+  m_UseHighQualityCurve: 1
+  m_RotationCurves: []
+  m_CompressedRotationCurves: []
+  m_PositionCurves: []
+  m_ScaleCurves: []
+  m_FloatCurves:
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 15
+        inSlope: 207.999985
+        outSlope: 207.999985
+        tangentMode: 10
+      - time: .0384615399
+        value: 23
+        inSlope: 103.999992
+        outSlope: 103.999992
+        tangentMode: 10
+      - time: .0769230798
+        value: 23
+        inSlope: 104.000008
+        outSlope: 104.000008
+        tangentMode: 10
+      - time: .115384616
+        value: 31
+        inSlope: 519.999939
+        outSlope: 519.999939
+        tangentMode: 10
+      - time: .15384616
+        value: 63
+        inSlope: -104.000122
+        outSlope: -104.000122
+        tangentMode: 10
+      - time: .192307696
+        value: 23
+        inSlope: -585.000061
+        outSlope: -585.000061
+        tangentMode: 10
+      - time: .230769232
+        value: 18
+        inSlope: -130.000015
+        outSlope: -130.000015
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_Radius
+    path: 
+    classID: 58
+    script: {fileID: 0}
+  m_PPtrCurves:
+  - curve:
+    - time: 0
+      value: {fileID: 21300000, guid: 3c00216569252034aa582e1c3d9096fd, type: 3}
+    - time: .0384615399
+      value: {fileID: 21300000, guid: f29354d4e43e8714385d9b27dda5e097, type: 3}
+    - time: .0769230798
+      value: {fileID: 21300000, guid: 8d38d21d2a0fb3e43afdc89eb56360c5, type: 3}
+    - time: .115384616
+      value: {fileID: 21300000, guid: 367ec8f05cc3c0249b76faf68a999c8e, type: 3}
+    - time: .15384616
+      value: {fileID: 21300000, guid: 73cc1c51e7263614a817cd02e751e9eb, type: 3}
+    - time: .192307696
+      value: {fileID: 21300000, guid: b642cf6a8f01dc048bee21db1246f7fe, type: 3}
+    - time: .230769232
+      value: {fileID: 21300000, guid: 7768d7f5c9c46304d92c61fdaf52040b, type: 3}
+    - time: .269230783
+      value: {fileID: 21300000, guid: a4827ba152e3eac46afc8541241da0c9, type: 3}
+    - time: .307692319
+      value: {fileID: 21300000, guid: 7a622cb0b87c3f049aa6fdb401658349, type: 3}
+    - time: .346153855
+      value: {fileID: 21300000, guid: 4554d4e9a0368e343a6e37b4fdb575d8, type: 3}
+    - time: .384615391
+      value: {fileID: 21300000, guid: 0f3c34121ce22ba4d9182f8e02a3b93e, type: 3}
+    - time: .423076928
+      value: {fileID: 21300000, guid: a4ed707dff034904e9330e7eb8329024, type: 3}
+    - time: .461538464
+      value: {fileID: 21300000, guid: f7efdc06de92a8843b101563400c1031, type: 3}
+    attribute: m_Sprite
+    path: 
+    classID: 212
+    script: {fileID: 0}
+  m_SampleRate: 26
+  m_WrapMode: 0
+  m_Bounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+  m_ClipBindingConstant:
+    genericBindings:
+    - path: 0
+      attribute: 1984117138
+      script: {fileID: 0}
+      classID: 58
+      customType: 0
+      isPPtrCurve: 0
+    - path: 0
+      attribute: 0
+      script: {fileID: 0}
+      classID: 212
+      customType: 23
+      isPPtrCurve: 1
+    pptrCurveMapping:
+    - {fileID: 21300000, guid: 3c00216569252034aa582e1c3d9096fd, type: 3}
+    - {fileID: 21300000, guid: f29354d4e43e8714385d9b27dda5e097, type: 3}
+    - {fileID: 21300000, guid: 8d38d21d2a0fb3e43afdc89eb56360c5, type: 3}
+    - {fileID: 21300000, guid: 367ec8f05cc3c0249b76faf68a999c8e, type: 3}
+    - {fileID: 21300000, guid: 73cc1c51e7263614a817cd02e751e9eb, type: 3}
+    - {fileID: 21300000, guid: b642cf6a8f01dc048bee21db1246f7fe, type: 3}
+    - {fileID: 21300000, guid: 7768d7f5c9c46304d92c61fdaf52040b, type: 3}
+    - {fileID: 21300000, guid: a4827ba152e3eac46afc8541241da0c9, type: 3}
+    - {fileID: 21300000, guid: 7a622cb0b87c3f049aa6fdb401658349, type: 3}
+    - {fileID: 21300000, guid: 4554d4e9a0368e343a6e37b4fdb575d8, type: 3}
+    - {fileID: 21300000, guid: 0f3c34121ce22ba4d9182f8e02a3b93e, type: 3}
+    - {fileID: 21300000, guid: a4ed707dff034904e9330e7eb8329024, type: 3}
+    - {fileID: 21300000, guid: f7efdc06de92a8843b101563400c1031, type: 3}
+  m_AnimationClipSettings:
+    serializedVersion: 2
+    m_StartTime: 0
+    m_StopTime: .5
+    m_OrientationOffsetY: 0
+    m_Level: 0
+    m_CycleOffset: 0
+    m_LoopTime: 0
+    m_LoopBlend: 0
+    m_LoopBlendOrientation: 0
+    m_LoopBlendPositionY: 0
+    m_LoopBlendPositionXZ: 0
+    m_KeepOriginalOrientation: 0
+    m_KeepOriginalPositionY: 1
+    m_KeepOriginalPositionXZ: 0
+    m_HeightFromFeet: 0
+    m_Mirror: 0
+  m_EditorCurves:
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - time: 0
+        value: 15
+        inSlope: 207.999985
+        outSlope: 207.999985
+        tangentMode: 10
+      - time: .0384615399
+        value: 23
+        inSlope: 103.999992
+        outSlope: 103.999992
+        tangentMode: 10
+      - time: .0769230798
+        value: 23
+        inSlope: 104.000008
+        outSlope: 104.000008
+        tangentMode: 10
+      - time: .115384616
+        value: 31
+        inSlope: 519.999939
+        outSlope: 519.999939
+        tangentMode: 10
+      - time: .15384616
+        value: 63
+        inSlope: -104.000122
+        outSlope: -104.000122
+        tangentMode: 10
+      - time: .192307696
+        value: 23
+        inSlope: -585.000061
+        outSlope: -585.000061
+        tangentMode: 10
+      - time: .230769232
+        value: 18
+        inSlope: -130.000015
+        outSlope: -130.000015
+        tangentMode: 10
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+    attribute: m_Radius
+    path: 
+    classID: 58
+    script: {fileID: 0}
+  m_EulerEditorCurves: []
+  m_Events:
+  - time: .200000003
+    functionName: OnAnimationEnd
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

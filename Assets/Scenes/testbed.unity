@@ -208,12 +208,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f0f8922c06a97044bd736ee4890ca43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DoPatrolAtStart: 0
-  ShowNodesInEditor: 0
-  PatrolNode1: {x: 552, y: 40, z: 0}
-  PatrolNode2: {x: 664, y: 40, z: 0}
-  PatrolSpeed: 10
-  PauseAtNodeTime: .5
   CheckForSomething: 1
   ShowSensorInEditor: 1
   SensorCenter: {x: 26.75, y: 13.8699999}
@@ -226,6 +220,12 @@ MonoBehaviour:
   TimeBeforeAttackExpires: 10
   HitStunTime: .25
   HitPushForce: 1000
+  DoPatrolAtStart: 0
+  ShowNodesInEditor: 0
+  PatrolNode1: {x: 552, y: 40, z: 0}
+  PatrolNode2: {x: 664, y: 40, z: 0}
+  PatrolSpeed: 10
+  PauseAtNodeTime: .5
 --- !u!114 &48512961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -400,6 +400,50 @@ Transform:
   - {fileID: 863954726}
   m_Father: {fileID: 1661965236}
   m_RootOrder: 0
+--- !u!1001 &63583172
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 441758, guid: d39e61dd5fe9fe142a37d0495015d574, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -481.600006
+      objectReference: {fileID: 0}
+    - target: {fileID: 441758, guid: d39e61dd5fe9fe142a37d0495015d574, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -151
+      objectReference: {fileID: 0}
+    - target: {fileID: 441758, guid: d39e61dd5fe9fe142a37d0495015d574, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 441758, guid: d39e61dd5fe9fe142a37d0495015d574, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 441758, guid: d39e61dd5fe9fe142a37d0495015d574, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 441758, guid: d39e61dd5fe9fe142a37d0495015d574, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 441758, guid: d39e61dd5fe9fe142a37d0495015d574, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 441758, guid: d39e61dd5fe9fe142a37d0495015d574, type: 2}
+      propertyPath: m_RootOrder
+      value: 39
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: d39e61dd5fe9fe142a37d0495015d574, type: 2}
+  m_RootGameObject: {fileID: 1232327900}
+  m_IsPrefabParent: 0
+  m_IsExploded: 1
 --- !u!1 &84610558
 GameObject:
   m_ObjectHideFlags: 0
@@ -454,7 +498,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!95 &89773905
 Animator:
   serializedVersion: 3
@@ -519,16 +563,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd9ad0356078850419188dc27187a047, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DoPatrolAtStart: 1
-  ShowEndPointsInEditor: 1
-  IsMovingRight: 1
-  IsMovingUp: 1
-  HorizontalDistRange: {x: 16, y: 128}
-  VerticalDistRange: {x: 16, y: 64}
-  MinScreenPct: .100000001
-  MaxScreenPct: .899999976
-  PatrolSpeed: 25
-  PauseTimeAtEdge: .100000001
   CheckForSomething: 1
   ShowSensorInEditor: 1
   SensorCenter: {x: 0, y: 0}
@@ -541,6 +575,16 @@ MonoBehaviour:
   TimeBeforeAttackExpires: 10
   HitStunTime: .100000001
   HitPushForce: 100
+  DoPatrolAtStart: 1
+  ShowEndPointsInEditor: 1
+  IsMovingRight: 1
+  IsMovingUp: 1
+  HorizontalDistRange: {x: 16, y: 128}
+  VerticalDistRange: {x: 16, y: 64}
+  MinScreenPct: .100000001
+  MaxScreenPct: .899999976
+  PatrolSpeed: 25
+  PauseTimeAtEdge: .100000001
 --- !u!114 &89773909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1198,12 +1242,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f0f8922c06a97044bd736ee4890ca43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DoPatrolAtStart: 0
-  ShowNodesInEditor: 1
-  PatrolNode1: {x: -473, y: 24, z: 0}
-  PatrolNode2: {x: -392, y: 24, z: 0}
-  PatrolSpeed: 10
-  PauseAtNodeTime: .5
   CheckForSomething: 1
   ShowSensorInEditor: 1
   SensorCenter: {x: 26.75, y: 13.8699999}
@@ -1216,6 +1254,12 @@ MonoBehaviour:
   TimeBeforeAttackExpires: 10
   HitStunTime: .25
   HitPushForce: 1000
+  DoPatrolAtStart: 0
+  ShowNodesInEditor: 1
+  PatrolNode1: {x: -473, y: 24, z: 0}
+  PatrolNode2: {x: -392, y: 24, z: 0}
+  PatrolSpeed: 10
+  PauseAtNodeTime: .5
 --- !u!114 &217170874
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2454,12 +2498,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f0f8922c06a97044bd736ee4890ca43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DoPatrolAtStart: 0
-  ShowNodesInEditor: 0
-  PatrolNode1: {x: -101, y: -87, z: 0}
-  PatrolNode2: {x: -24.2000008, y: -87, z: 0}
-  PatrolSpeed: 10
-  PauseAtNodeTime: .5
   CheckForSomething: 1
   ShowSensorInEditor: 1
   SensorCenter: {x: 26.75, y: 13.8699999}
@@ -2472,6 +2510,12 @@ MonoBehaviour:
   TimeBeforeAttackExpires: 10
   HitStunTime: .25
   HitPushForce: 1000
+  DoPatrolAtStart: 0
+  ShowNodesInEditor: 0
+  PatrolNode1: {x: -101, y: -87, z: 0}
+  PatrolNode2: {x: -24.2000008, y: -87, z: 0}
+  PatrolSpeed: 10
+  PauseAtNodeTime: .5
 --- !u!114 &417205570
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2871,12 +2915,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f0f8922c06a97044bd736ee4890ca43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DoPatrolAtStart: 0
-  ShowNodesInEditor: 0
-  PatrolNode1: {x: 552, y: 40, z: 0}
-  PatrolNode2: {x: 664, y: 40, z: 0}
-  PatrolSpeed: 10
-  PauseAtNodeTime: .5
   CheckForSomething: 1
   ShowSensorInEditor: 1
   SensorCenter: {x: 26.75, y: 13.8699999}
@@ -2889,6 +2927,12 @@ MonoBehaviour:
   TimeBeforeAttackExpires: 10
   HitStunTime: .25
   HitPushForce: 1000
+  DoPatrolAtStart: 0
+  ShowNodesInEditor: 0
+  PatrolNode1: {x: 552, y: 40, z: 0}
+  PatrolNode2: {x: 664, y: 40, z: 0}
+  PatrolSpeed: 10
+  PauseAtNodeTime: .5
 --- !u!114 &449033185
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3355,12 +3399,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f0f8922c06a97044bd736ee4890ca43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DoPatrolAtStart: 0
-  ShowNodesInEditor: 0
-  PatrolNode1: {x: -101, y: -87, z: 0}
-  PatrolNode2: {x: -24.2000008, y: -87, z: 0}
-  PatrolSpeed: 10
-  PauseAtNodeTime: .5
   CheckForSomething: 1
   ShowSensorInEditor: 1
   SensorCenter: {x: 26.75, y: 13.8699999}
@@ -3373,6 +3411,12 @@ MonoBehaviour:
   TimeBeforeAttackExpires: 10
   HitStunTime: .25
   HitPushForce: 1000
+  DoPatrolAtStart: 0
+  ShowNodesInEditor: 0
+  PatrolNode1: {x: -101, y: -87, z: 0}
+  PatrolNode2: {x: -24.2000008, y: -87, z: 0}
+  PatrolSpeed: 10
+  PauseAtNodeTime: .5
 --- !u!114 &528746572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4047,12 +4091,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f0f8922c06a97044bd736ee4890ca43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DoPatrolAtStart: 1
-  ShowNodesInEditor: 1
-  PatrolNode1: {x: -624, y: -88, z: 0}
-  PatrolNode2: {x: -592, y: -88, z: 0}
-  PatrolSpeed: 25
-  PauseAtNodeTime: .5
   CheckForSomething: 1
   ShowSensorInEditor: 1
   SensorCenter: {x: 26.75, y: 13.8699999}
@@ -4065,6 +4103,12 @@ MonoBehaviour:
   TimeBeforeAttackExpires: 10
   HitStunTime: .25
   HitPushForce: 1000
+  DoPatrolAtStart: 1
+  ShowNodesInEditor: 1
+  PatrolNode1: {x: -624, y: -88, z: 0}
+  PatrolNode2: {x: -592, y: -88, z: 0}
+  PatrolSpeed: 25
+  PauseAtNodeTime: .5
 --- !u!50 &616228996
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -4461,12 +4505,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f0f8922c06a97044bd736ee4890ca43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DoPatrolAtStart: 0
-  ShowNodesInEditor: 0
-  PatrolNode1: {x: 552, y: 40, z: 0}
-  PatrolNode2: {x: 664, y: 40, z: 0}
-  PatrolSpeed: 10
-  PauseAtNodeTime: .5
   CheckForSomething: 1
   ShowSensorInEditor: 1
   SensorCenter: {x: 26.75, y: 13.8699999}
@@ -4479,6 +4517,12 @@ MonoBehaviour:
   TimeBeforeAttackExpires: 10
   HitStunTime: .25
   HitPushForce: 1000
+  DoPatrolAtStart: 0
+  ShowNodesInEditor: 0
+  PatrolNode1: {x: 552, y: 40, z: 0}
+  PatrolNode2: {x: 664, y: 40, z: 0}
+  PatrolSpeed: 10
+  PauseAtNodeTime: .5
 --- !u!114 &681050480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5072,12 +5116,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f0f8922c06a97044bd736ee4890ca43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DoPatrolAtStart: 0
-  ShowNodesInEditor: 1
-  PatrolNode1: {x: -568, y: -56, z: 0}
-  PatrolNode2: {x: -488, y: -56, z: 0}
-  PatrolSpeed: 10
-  PauseAtNodeTime: .5
   CheckForSomething: 1
   ShowSensorInEditor: 1
   SensorCenter: {x: 26.75, y: 13.8699999}
@@ -5090,6 +5128,12 @@ MonoBehaviour:
   TimeBeforeAttackExpires: 10
   HitStunTime: .25
   HitPushForce: 1000
+  DoPatrolAtStart: 0
+  ShowNodesInEditor: 1
+  PatrolNode1: {x: -568, y: -56, z: 0}
+  PatrolNode2: {x: -488, y: -56, z: 0}
+  PatrolSpeed: 10
+  PauseAtNodeTime: .5
 --- !u!114 &766528487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5914,6 +5958,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 31
       objectReference: {fileID: 0}
+    - target: {fileID: 101396, guid: 16342e713b429c541bef7fc3eaec7dc6, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 16342e713b429c541bef7fc3eaec7dc6, type: 2}
   m_RootGameObject: {fileID: 89773904}
@@ -6236,12 +6284,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f0f8922c06a97044bd736ee4890ca43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DoPatrolAtStart: 0
-  ShowNodesInEditor: 0
-  PatrolNode1: {x: -101, y: -87, z: 0}
-  PatrolNode2: {x: -24.2000008, y: -87, z: 0}
-  PatrolSpeed: 10
-  PauseAtNodeTime: .5
   CheckForSomething: 1
   ShowSensorInEditor: 1
   SensorCenter: {x: 26.75, y: 13.8699999}
@@ -6254,6 +6296,12 @@ MonoBehaviour:
   TimeBeforeAttackExpires: 10
   HitStunTime: .25
   HitPushForce: 1000
+  DoPatrolAtStart: 0
+  ShowNodesInEditor: 0
+  PatrolNode1: {x: -101, y: -87, z: 0}
+  PatrolNode2: {x: -24.2000008, y: -87, z: 0}
+  PatrolSpeed: 10
+  PauseAtNodeTime: .5
 --- !u!114 &984520811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7457,12 +7505,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f0f8922c06a97044bd736ee4890ca43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DoPatrolAtStart: 0
-  ShowNodesInEditor: 1
-  PatrolNode1: {x: -473, y: 24, z: 0}
-  PatrolNode2: {x: -392, y: 24, z: 0}
-  PatrolSpeed: 10
-  PauseAtNodeTime: .5
   CheckForSomething: 1
   ShowSensorInEditor: 1
   SensorCenter: {x: 26.75, y: 13.8699999}
@@ -7475,6 +7517,12 @@ MonoBehaviour:
   TimeBeforeAttackExpires: 10
   HitStunTime: .25
   HitPushForce: 1000
+  DoPatrolAtStart: 0
+  ShowNodesInEditor: 1
+  PatrolNode1: {x: -473, y: 24, z: 0}
+  PatrolNode2: {x: -392, y: 24, z: 0}
+  PatrolSpeed: 10
+  PauseAtNodeTime: .5
 --- !u!114 &1180588910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7748,6 +7796,175 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 36
+--- !u!1 &1232327900
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 141758, guid: d39e61dd5fe9fe142a37d0495015d574, type: 2}
+  m_PrefabInternal: {fileID: 63583172}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1232327908}
+  - 212: {fileID: 1232327907}
+  - 61: {fileID: 1232327906}
+  - 50: {fileID: 1232327905}
+  - 114: {fileID: 1232327904}
+  - 114: {fileID: 1232327903}
+  - 114: {fileID: 1232327902}
+  - 95: {fileID: 1232327901}
+  m_Layer: 12
+  m_Name: explodingChaser
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!95 &1232327901
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 9541758, guid: d39e61dd5fe9fe142a37d0495015d574,
+    type: 2}
+  m_PrefabInternal: {fileID: 63583172}
+  m_GameObject: {fileID: 1232327900}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4c8400d0c3a8e40428d513a1f37c8b38, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &1232327902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11441758, guid: d39e61dd5fe9fe142a37d0495015d574,
+    type: 2}
+  m_PrefabInternal: {fileID: 63583172}
+  m_GameObject: {fileID: 1232327900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5b0693f275e0c14fa897502a71908e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 100
+  _startHealth: 100
+  TakeDamageFromLayers:
+    serializedVersion: 2
+    m_Bits: 90112
+--- !u!114 &1232327903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11441762, guid: d39e61dd5fe9fe142a37d0495015d574,
+    type: 2}
+  m_PrefabInternal: {fileID: 63583172}
+  m_GameObject: {fileID: 1232327900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0c2eb6beac531a4d865e7128bba402f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CheckForSomething: 1
+  ShowSensorInEditor: 1
+  SensorCenter: {x: 0, y: 0}
+  SensorRadius: 64
+  MaxObjectsToFind: 1
+  SensorLayersToCheck:
+    serializedVersion: 2
+    m_Bits: 256
+  CanAttack: 1
+  TimeBeforeAttackExpires: 10
+  HitStunTime: .25
+  HitPushForce: 1000
+  ShowExplosionRadiusInEditor: 1
+  ExplosionRadius: 32
+  TimeBeforeExplode: 5
+  ExplodeWhenHitLayers:
+    serializedVersion: 2
+    m_Bits: 256
+  ExplosionPrefab: {fileID: 142550, guid: 6cafa56ca7c3dc94e8714edd917e03fb, type: 2}
+--- !u!114 &1232327904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11441760, guid: d39e61dd5fe9fe142a37d0495015d574,
+    type: 2}
+  m_PrefabInternal: {fileID: 63583172}
+  m_GameObject: {fileID: 1232327900}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edc2bbb8f9401f94a81e10b52be10945, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BaseSpeed: 75
+  JumpForce: 10000
+  JumpVelocityThreshold: 5
+  GlideForce: 9.81000042
+  MaxGlideTime: 1
+  PlatformLayers:
+    serializedVersion: 2
+    m_Bits: 512
+--- !u!50 &1232327905
+Rigidbody2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 5041758, guid: d39e61dd5fe9fe142a37d0495015d574,
+    type: 2}
+  m_PrefabInternal: {fileID: 63583172}
+  m_GameObject: {fileID: 1232327900}
+  m_Mass: 80
+  m_LinearDrag: 0
+  m_AngularDrag: .0500000007
+  m_GravityScale: 10
+  m_FixedAngle: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+--- !u!61 &1232327906
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6141758, guid: d39e61dd5fe9fe142a37d0495015d574,
+    type: 2}
+  m_PrefabInternal: {fileID: 63583172}
+  m_GameObject: {fileID: 1232327900}
+  m_Enabled: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Size: {x: 32, y: 32}
+  m_Center: {x: 0, y: 0}
+--- !u!212 &1232327907
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 21241758, guid: d39e61dd5fe9fe142a37d0495015d574,
+    type: 2}
+  m_PrefabInternal: {fileID: 63583172}
+  m_GameObject: {fileID: 1232327900}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 408390349
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: dc0b14a193ceb3245a58e31ffa17d204, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!4 &1232327908
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 441758, guid: d39e61dd5fe9fe142a37d0495015d574, type: 2}
+  m_PrefabInternal: {fileID: 63583172}
+  m_GameObject: {fileID: 1232327900}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -481.600006, y: -151, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 39
 --- !u!1 &1238168110
 GameObject:
   m_ObjectHideFlags: 0
@@ -8487,12 +8704,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f0f8922c06a97044bd736ee4890ca43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DoPatrolAtStart: 0
-  ShowNodesInEditor: 0
-  PatrolNode1: {x: 552, y: 40, z: 0}
-  PatrolNode2: {x: 664, y: 40, z: 0}
-  PatrolSpeed: 10
-  PauseAtNodeTime: .5
   CheckForSomething: 1
   ShowSensorInEditor: 1
   SensorCenter: {x: 26.75, y: 13.8699999}
@@ -8505,6 +8716,12 @@ MonoBehaviour:
   TimeBeforeAttackExpires: 10
   HitStunTime: .25
   HitPushForce: 1000
+  DoPatrolAtStart: 0
+  ShowNodesInEditor: 0
+  PatrolNode1: {x: 552, y: 40, z: 0}
+  PatrolNode2: {x: 664, y: 40, z: 0}
+  PatrolSpeed: 10
+  PauseAtNodeTime: .5
 --- !u!114 &1320654465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9286,12 +9503,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f0f8922c06a97044bd736ee4890ca43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DoPatrolAtStart: 1
-  ShowNodesInEditor: 1
-  PatrolNode1: {x: 900, y: -152, z: 0}
-  PatrolNode2: {x: 664, y: -152, z: 0}
-  PatrolSpeed: 10
-  PauseAtNodeTime: .5
   CheckForSomething: 1
   ShowSensorInEditor: 1
   SensorCenter: {x: 26.75, y: 13.8699999}
@@ -9304,6 +9515,12 @@ MonoBehaviour:
   TimeBeforeAttackExpires: 10
   HitStunTime: .25
   HitPushForce: 1000
+  DoPatrolAtStart: 1
+  ShowNodesInEditor: 1
+  PatrolNode1: {x: 900, y: -152, z: 0}
+  PatrolNode2: {x: 664, y: -152, z: 0}
+  PatrolSpeed: 10
+  PauseAtNodeTime: .5
 --- !u!114 &1436072621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10085,12 +10302,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f0f8922c06a97044bd736ee4890ca43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DoPatrolAtStart: 0
-  ShowNodesInEditor: 0
-  PatrolNode1: {x: -101, y: -87, z: 0}
-  PatrolNode2: {x: -24.2000008, y: -87, z: 0}
-  PatrolSpeed: 10
-  PauseAtNodeTime: .5
   CheckForSomething: 1
   ShowSensorInEditor: 1
   SensorCenter: {x: 26.75, y: 13.8699999}
@@ -10103,6 +10314,12 @@ MonoBehaviour:
   TimeBeforeAttackExpires: 10
   HitStunTime: .25
   HitPushForce: 1000
+  DoPatrolAtStart: 0
+  ShowNodesInEditor: 0
+  PatrolNode1: {x: -101, y: -87, z: 0}
+  PatrolNode2: {x: -24.2000008, y: -87, z: 0}
+  PatrolSpeed: 10
+  PauseAtNodeTime: .5
 --- !u!114 &1543210895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10436,12 +10653,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f0f8922c06a97044bd736ee4890ca43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DoPatrolAtStart: 0
-  ShowNodesInEditor: 0
-  PatrolNode1: {x: -101, y: -87, z: 0}
-  PatrolNode2: {x: -24.2000008, y: -87, z: 0}
-  PatrolSpeed: 10
-  PauseAtNodeTime: .5
   CheckForSomething: 1
   ShowSensorInEditor: 1
   SensorCenter: {x: 26.75, y: 13.8699999}
@@ -10454,6 +10665,12 @@ MonoBehaviour:
   TimeBeforeAttackExpires: 10
   HitStunTime: .25
   HitPushForce: 1000
+  DoPatrolAtStart: 0
+  ShowNodesInEditor: 0
+  PatrolNode1: {x: -101, y: -87, z: 0}
+  PatrolNode2: {x: -24.2000008, y: -87, z: 0}
+  PatrolSpeed: 10
+  PauseAtNodeTime: .5
 --- !u!114 &1614628270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10641,12 +10858,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f0f8922c06a97044bd736ee4890ca43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DoPatrolAtStart: 1
-  ShowNodesInEditor: 1
-  PatrolNode1: {x: 552, y: 40, z: 0}
-  PatrolNode2: {x: 664, y: 40, z: 0}
-  PatrolSpeed: 10
-  PauseAtNodeTime: .5
   CheckForSomething: 1
   ShowSensorInEditor: 1
   SensorCenter: {x: 26.75, y: 13.8699999}
@@ -10659,6 +10870,12 @@ MonoBehaviour:
   TimeBeforeAttackExpires: 10
   HitStunTime: .25
   HitPushForce: 1000
+  DoPatrolAtStart: 1
+  ShowNodesInEditor: 1
+  PatrolNode1: {x: 552, y: 40, z: 0}
+  PatrolNode2: {x: 664, y: 40, z: 0}
+  PatrolSpeed: 10
+  PauseAtNodeTime: .5
 --- !u!114 &1654579879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10847,12 +11064,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f0f8922c06a97044bd736ee4890ca43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DoPatrolAtStart: 0
-  ShowNodesInEditor: 0
-  PatrolNode1: {x: -101, y: -87, z: 0}
-  PatrolNode2: {x: -24.2000008, y: -87, z: 0}
-  PatrolSpeed: 10
-  PauseAtNodeTime: .5
   CheckForSomething: 1
   ShowSensorInEditor: 1
   SensorCenter: {x: 26.75, y: 13.8699999}
@@ -10865,6 +11076,12 @@ MonoBehaviour:
   TimeBeforeAttackExpires: 10
   HitStunTime: .25
   HitPushForce: 1000
+  DoPatrolAtStart: 0
+  ShowNodesInEditor: 0
+  PatrolNode1: {x: -101, y: -87, z: 0}
+  PatrolNode2: {x: -24.2000008, y: -87, z: 0}
+  PatrolSpeed: 10
+  PauseAtNodeTime: .5
 --- !u!114 &1661965239
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11594,12 +11811,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f0f8922c06a97044bd736ee4890ca43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DoPatrolAtStart: 0
-  ShowNodesInEditor: 0
-  PatrolNode1: {x: -101, y: -87, z: 0}
-  PatrolNode2: {x: -24.2000008, y: -87, z: 0}
-  PatrolSpeed: 10
-  PauseAtNodeTime: .5
   CheckForSomething: 1
   ShowSensorInEditor: 1
   SensorCenter: {x: 26.75, y: 13.8699999}
@@ -11612,6 +11823,12 @@ MonoBehaviour:
   TimeBeforeAttackExpires: 10
   HitStunTime: .25
   HitPushForce: 1000
+  DoPatrolAtStart: 0
+  ShowNodesInEditor: 0
+  PatrolNode1: {x: -101, y: -87, z: 0}
+  PatrolNode2: {x: -24.2000008, y: -87, z: 0}
+  PatrolSpeed: 10
+  PauseAtNodeTime: .5
 --- !u!114 &1780315590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11932,12 +12149,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f0f8922c06a97044bd736ee4890ca43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DoPatrolAtStart: 0
-  ShowNodesInEditor: 1
-  PatrolNode1: {x: -473, y: 24, z: 0}
-  PatrolNode2: {x: -392, y: 24, z: 0}
-  PatrolSpeed: 10
-  PauseAtNodeTime: .5
   CheckForSomething: 1
   ShowSensorInEditor: 1
   SensorCenter: {x: 26.75, y: 13.8699999}
@@ -11950,6 +12161,12 @@ MonoBehaviour:
   TimeBeforeAttackExpires: 10
   HitStunTime: .25
   HitPushForce: 1000
+  DoPatrolAtStart: 0
+  ShowNodesInEditor: 1
+  PatrolNode1: {x: -473, y: 24, z: 0}
+  PatrolNode2: {x: -392, y: 24, z: 0}
+  PatrolSpeed: 10
+  PauseAtNodeTime: .5
 --- !u!114 &1800470002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12583,12 +12800,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f0f8922c06a97044bd736ee4890ca43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DoPatrolAtStart: 0
-  ShowNodesInEditor: 0
-  PatrolNode1: {x: -101, y: -87, z: 0}
-  PatrolNode2: {x: -24.2000008, y: -87, z: 0}
-  PatrolSpeed: 10
-  PauseAtNodeTime: .5
   CheckForSomething: 1
   ShowSensorInEditor: 1
   SensorCenter: {x: 26.75, y: 13.8699999}
@@ -12601,6 +12812,12 @@ MonoBehaviour:
   TimeBeforeAttackExpires: 10
   HitStunTime: .25
   HitPushForce: 1000
+  DoPatrolAtStart: 0
+  ShowNodesInEditor: 0
+  PatrolNode1: {x: -101, y: -87, z: 0}
+  PatrolNode2: {x: -24.2000008, y: -87, z: 0}
+  PatrolSpeed: 10
+  PauseAtNodeTime: .5
 --- !u!114 &1902390703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12947,12 +13164,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f0f8922c06a97044bd736ee4890ca43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DoPatrolAtStart: 1
-  ShowNodesInEditor: 1
-  PatrolNode1: {x: -101, y: -87, z: 0}
-  PatrolNode2: {x: -24.2000008, y: -87, z: 0}
-  PatrolSpeed: 10
-  PauseAtNodeTime: .5
   CheckForSomething: 1
   ShowSensorInEditor: 1
   SensorCenter: {x: 26.75, y: 13.8699999}
@@ -12965,6 +13176,12 @@ MonoBehaviour:
   TimeBeforeAttackExpires: 10
   HitStunTime: .25
   HitPushForce: 1000
+  DoPatrolAtStart: 1
+  ShowNodesInEditor: 1
+  PatrolNode1: {x: -101, y: -87, z: 0}
+  PatrolNode2: {x: -24.2000008, y: -87, z: 0}
+  PatrolSpeed: 10
+  PauseAtNodeTime: .5
 --- !u!114 &1964515834
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14203,12 +14420,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f0f8922c06a97044bd736ee4890ca43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DoPatrolAtStart: 0
-  ShowNodesInEditor: 1
-  PatrolNode1: {x: -473, y: 24, z: 0}
-  PatrolNode2: {x: -392, y: 24, z: 0}
-  PatrolSpeed: 10
-  PauseAtNodeTime: .5
   CheckForSomething: 1
   ShowSensorInEditor: 1
   SensorCenter: {x: 26.75, y: 13.8699999}
@@ -14221,6 +14432,12 @@ MonoBehaviour:
   TimeBeforeAttackExpires: 10
   HitStunTime: .25
   HitPushForce: 1000
+  DoPatrolAtStart: 0
+  ShowNodesInEditor: 1
+  PatrolNode1: {x: -473, y: 24, z: 0}
+  PatrolNode2: {x: -392, y: 24, z: 0}
+  PatrolSpeed: 10
+  PauseAtNodeTime: .5
 --- !u!114 &2130310039
 MonoBehaviour:
   m_ObjectHideFlags: 0

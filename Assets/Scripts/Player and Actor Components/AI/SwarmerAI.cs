@@ -4,7 +4,7 @@ using OgreToast.Utility;
 using OgreToast.Attributes;
 
 [RequireComponent(typeof(FlyingComponent), typeof(SpriteRenderer), typeof(HealthComponent))]
-public class SwarmerAI : BaseAI<SwarmerAI>
+public class SwarmerAI : AbstractAI
 {
 	#region patrol_public_vars
 	[Header("Patrolling")]
@@ -24,40 +24,15 @@ public class SwarmerAI : BaseAI<SwarmerAI>
 	public float PatrolSpeed = 25f;
 	public float PauseTimeAtEdge = 0.1f;
 	#endregion
-	
-	#region sensing_public_vars
-	[Header("Sensing")]
-	public bool CheckForSomething = true;
-	public bool ShowSensorInEditor = true;
-	public Vector2 SensorCenter = Vector2.zero;
-	public float SensorRadius = 100f;
-	public int MaxObjectsToFind = 1;
-	public LayerMask SensorLayersToCheck = 0;
-	#endregion
-	
-	#region attacking_public_vars
-	[Header("Fighting")]
-	public bool CanAttack = true;
-	public float TimeBeforeAttackExpires = 10f;
-	public float HitStunTime = 0.1f;
-	public float HitPushForce = 100f;
-	#endregion
 
 	private Vector3 _moveTarget;
 	private FlyingComponent _mover;
 	private SimpleTimer _pauseTimer;
-	
-	private Collider2D[] _sensedColliders;
-	private Vector2 _realSensorCenter;
-	private SimpleTimer _attackExpireTimer;
-	private WeaponComponent _weapon = null;
-	private HealthComponent _health;
-	private SimpleTimer _stunTimer;
 
-	protected bool _isDying = false;
-
-	private void Start()
+	#region monobehaviour
+	protected override void Start()
 	{
+		base.Start();
 		Vector3 moveDelta = new Vector3(((IsMovingRight)?1:-1) * Random.Range(HorizontalDistRange.x, HorizontalDistRange.y),
 		                                ((IsMovingUp)?1:-1) * Random.Range(VerticalDistRange.x, VerticalDistRange.y),
 		                                0f);
@@ -70,33 +45,15 @@ public class SwarmerAI : BaseAI<SwarmerAI>
 		_pauseTimer.Start();
 		if(DoPatrolAtStart)
 		{
-			currentState = PatrolAndAttackState;
-		}
-		
-		if(MaxObjectsToFind <= 0)
-		{
-			MaxObjectsToFind = 1;
-		}
-		_sensedColliders = new Collider2D[MaxObjectsToFind];
-		_realSensorCenter = (Vector2)transform.position + SensorCenter;
-		
-		_attackExpireTimer = new SimpleTimer(TimeBeforeAttackExpires);
-		_weapon = transform.FindChild("gun").gameObject.GetComponent<WeaponComponent>();
-		_stunTimer = new SimpleTimer(HitStunTime);
-		_health = GetComponent<HealthComponent>();
-		_health.Dead += OnDead;
-		_health.Hit += OnHit;
-		
-		if(Mathf.RoundToInt(Mathf.Cos(transform.rotation.eulerAngles.y * Mathf.Deg2Rad)) == -1)
-		{
-			SensorCenter.x *= -1;
+			ChangeState(AttackState);
 		}
 
 		rigidbody2D.gravityScale = 0f;
 	}
 
-	private void OnDrawGizmosSelected()
+	protected override void OnDrawGizmosSelected()
 	{
+		base.OnDrawGizmosSelected();
 		if(ShowEndPointsInEditor)
 		{
 			float midPct = MinScreenPct + (MaxScreenPct - MinScreenPct) / 2f;
@@ -108,32 +65,23 @@ public class SwarmerAI : BaseAI<SwarmerAI>
 			Gizmos.DrawCube(leftCenter, size);
 			Gizmos.DrawCube(rightCenter, size);
 		}
-
-		if(ShowSensorInEditor)
-		{
-			Vector3 center = SensorCenter;
-			if(Mathf.RoundToInt(Mathf.Cos(transform.rotation.eulerAngles.y * Mathf.Deg2Rad)) == -1 && !Application.isPlaying)
-			{
-				center.x = -1 * SensorCenter.x;
-			}
-			Gizmos.color = Color.red;
-			Gizmos.DrawWireSphere(transform.position + center, SensorRadius);
-		}
 	}
 
-	protected virtual void OnCollisionEnter2D(Collision2D collision)
+	protected override void OnCollisionEnter2D(Collision2D collision)
 	{
-		GameObject collisionGO = collision.gameObject;
-		_mover.CheckCollisionEnter(collisionGO);
-		_health.CheckCollisionEnter(collisionGO);
+		_mover.CheckCollisionEnter(collision.gameObject);
+		base.OnCollisionEnter2D(collision);
 	}
 	
-	protected virtual void OnCollisionExit2D(Collision2D collision)
+	protected override void OnCollisionExit2D(Collision2D collision)
 	{
 		_mover.CheckCollisionExit(collision);
+		base.OnCollisionEnter2D(collision);
 	}
+	#endregion
 
-	protected virtual void PatrolAndAttackState()
+	#region states
+	protected override void AttackState()
 	{
 		if(Mathf.Abs(transform.position.x - _moveTarget.x) < 1f && !_pauseTimer.IsRunning)
 		{
@@ -202,51 +150,5 @@ public class SwarmerAI : BaseAI<SwarmerAI>
 			}
 		}
 	}
-
-	protected virtual void DeadState()
-	{
-
-	}
-
-	protected bool HasSensedSomething()
-	{
-		if(CheckForSomething)
-		{
-			int numSensed = Physics2D.OverlapCircleNonAlloc(_realSensorCenter, SensorRadius, _sensedColliders, SensorLayersToCheck.value);
-			return numSensed != 0;
-		}
-		return false;
-	}
-	
-	protected virtual void OnHit(object sender, Vector2 hitDirection)
-	{
-		if(!_stunTimer.IsRunning)
-		{
-			rigidbody2D.AddForce(HitPushForce * hitDirection, ForceMode2D.Impulse);
-			_stunTimer.Stop();
-			_stunTimer.TargetTime = HitStunTime;
-			_stunTimer.Start();
-		}
-	}
-	
-	protected virtual void OnDead(object sender, System.EventArgs e)
-	{
-		if(!_isDying)
-		{
-			_isDying = true;
-			currentState = DeadState;
-			rigidbody2D.velocity = Vector2.zero;
-			Renderer[] renderers = GetComponentsInChildren<Renderer>();
-			Collider2D[] colliders = GetComponentsInChildren<Collider2D>();
-			for(int i=0;i<renderers.Length;++i)
-			{
-				renderers[i].enabled = false;
-			}
-			for(int i=0;i<colliders.Length;++i)
-			{
-				colliders[i].enabled = false;
-			}
-			GameManager.Instance.AddToDestroyQueue(gameObject);
-		}
-	}
+	#endregion
 }
