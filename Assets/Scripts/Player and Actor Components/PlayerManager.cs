@@ -191,7 +191,7 @@ public class PlayerManager : MonoBehaviour
 			_weapon.renderer.enabled = true;
 			collider2D.enabled = true;
 			rigidbody2D.isKinematic = false;
-			_weapon.Reset ();
+			_weapon.Reset();
 			_health.Reset();
 			Vector3 cameraPos = Camera.main.transform.position;
 			cameraPos.x = transform.position.x;

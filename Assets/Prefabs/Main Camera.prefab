@@ -101,18 +101,18 @@ MonoBehaviour:
   TargetHitShake:
     ShakeTime: .25
     ShakeMagnitude: {x: .5, y: .5}
-  ShakeOnExplosions: 0
+  ShakeOnExplosions: 1
   ExplosionShake:
-    ShakeTime: 0
-    ShakeMagnitude: {x: 0, y: 0}
-  ShakeOnMachineGunFire: 0
+    ShakeTime: .300000012
+    ShakeMagnitude: {x: .75, y: .75}
+  ShakeOnMachineGunFire: 1
   MachineGunFireShake:
-    ShakeTime: 0
-    ShakeMagnitude: {x: 0, y: 0}
-  ShakeOnRocketLaunch: 0
+    ShakeTime: .100000001
+    ShakeMagnitude: {x: .300000012, y: .300000012}
+  ShakeOnRocketLaunch: 1
   RocketLaunchShake:
-    ShakeTime: 0
-    ShakeMagnitude: {x: 0, y: 0}
+    ShakeTime: .25
+    ShakeMagnitude: {x: .670000017, y: .670000017}
   MaxShakeInfo:
     ShakeTime: 5
     ShakeMagnitude: {x: 20, y: 20}

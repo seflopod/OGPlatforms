@@ -40,6 +40,11 @@ public class WeaponComponent : MonoBehaviour
 		get { return _currentAmmo; }
 	}
 
+	private void Awake()
+	{
+		_baseWeapon = _currentWeapon;
+	}
+
 	private void Start()
 	{
 		_bulletStartTrans = transform.FindChild("bullet start");
@@ -55,7 +60,6 @@ public class WeaponComponent : MonoBehaviour
 				go.layer = LayerMask.NameToLayer("player_bullets");
 			}
 		});
-		_baseWeapon = _currentWeapon;
 	}
 
 	public void Aim(Vector2 dir)
