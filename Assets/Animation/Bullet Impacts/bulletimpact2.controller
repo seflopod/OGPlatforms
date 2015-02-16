@@ -35,21 +35,6 @@ State:
   m_IKOnFeet: 0
   m_Mirror: 0
   m_Tag: 
---- !u!1102 &110288810
-State:
-  m_ObjectHideFlags: 3
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: bulletImpact
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Motions:
-  - {fileID: 7400000, guid: 4761fd0cabb0df942a0fe6e6347af1c2, type: 2}
-  m_ParentStateMachine: {fileID: 110788810}
-  m_Position: {x: 50, y: 50, z: 0}
-  m_IKOnFeet: 0
-  m_Mirror: 0
-  m_Tag: 
 --- !u!1107 &110788810
 StateMachine:
   serializedVersion: 2
@@ -57,9 +42,8 @@ StateMachine:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Base Layer
-  m_DefaultState: {fileID: 110288810}
+  m_DefaultState: {fileID: 110268318}
   m_States:
-  - {fileID: 110288810}
   - {fileID: 110268318}
   m_ChildStateMachine: []
   m_ChildStateMachinePosition: []

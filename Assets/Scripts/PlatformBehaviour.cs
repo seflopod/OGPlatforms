@@ -8,7 +8,7 @@ public class PlatformBehaviour : MonoBehaviour
 		BulletBehaviour bb = collision.gameObject.GetComponent<BulletBehaviour>();
 		if(bb != null)
 		{
-			bb.Kill();
+			bb.Kill(true);
 		}
 	}
 }

@@ -49,7 +49,7 @@ GameObject:
   - 114: {fileID: 11401400}
   - 114: {fileID: 11401398}
   - 114: {fileID: 11401396}
-  m_Layer: 12
+  m_Layer: 15
   m_Name: flyer01
   m_TagString: Untagged
   m_Icon: {fileID: 0}

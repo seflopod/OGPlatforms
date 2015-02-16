@@ -13,11 +13,11 @@ public class BulletBehaviour : MonoBehaviour
 	{
 		if(!_isDying && Application.isPlaying)
 		{
-			Kill();
+			Kill(false);
 		}
 	}
 
-	public void Kill()
+	public void Kill(bool useImpact)
 	{
 		if(!_isDying)
 		{
@@ -27,21 +27,24 @@ public class BulletBehaviour : MonoBehaviour
 			renderer.enabled = false;
 
 			GameObject impactGO = GameManager.Instance.GetBulletImpact(ImpactPoolIndex);
-			impactGO.SetActive(true);
-			impactGO.transform.position = transform.position;
-			if(transform.rotation.y != 0f)
+			if(useImpact && impactGO != null)
 			{
-				Quaternion newRot = transform.rotation;
-				newRot.y *= -1f;
-				newRot.w *= -1f;
-				impactGO.transform.rotation = newRot;
-			}
-			else
-			{
-				impactGO.transform.rotation = transform.rotation;
-			}
+				impactGO.SetActive(true);
+				impactGO.transform.position = transform.position;
+				if(transform.rotation.y != 0f)
+				{
+					Quaternion newRot = transform.rotation;
+					newRot.y *= -1f;
+					newRot.w *= -1f;
+					impactGO.transform.rotation = newRot;
+				}
+				else
+				{
+					impactGO.transform.rotation = transform.rotation;
+				}
 
-			impactGO.renderer.enabled = true;
+				impactGO.renderer.enabled = true;
+			}
 
 			gameObject.SetActive(false);
 		}

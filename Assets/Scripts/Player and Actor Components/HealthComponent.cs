@@ -61,7 +61,7 @@ public class HealthComponent : MonoBehaviour
 				{
 					OnHit(bb.rigidbody2D.velocity.normalized);
 				}
-				bb.Kill();
+				bb.Kill(true);
 			}
 		}
 	}
