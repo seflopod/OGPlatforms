@@ -18,4 +18,5 @@ public class WeaponInfo
 	public bool OverrideBulletLayer = false;
 	public string BulletLayerName = "";
 	public AudioClip FireSound;
+	public GameObject BulletPrefab;
 }

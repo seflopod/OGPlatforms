@@ -129,7 +129,6 @@ public class WeaponComponent : MonoBehaviour
 			box.center = Vector2.zero;
 			BulletBehaviour bb = bullet.GetComponent<BulletBehaviour>();
 			bb.DamageValue = _currentWeapon.DamageDealt;
-			bb.ImpactPoolIndex = _currentWeapon.BulletImpactPoolIndex;
 
 			if(_currentWeapon.OverrideBulletLayer)
 			{

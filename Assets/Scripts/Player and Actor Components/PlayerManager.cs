@@ -1,15 +1,13 @@
 using UnityEngine;
 using OgreToast.Utility;
 
-[RequireComponent(typeof(MovementComponent), typeof(HealthComponent))]
-public class PlayerManager : MonoBehaviour
+[RequireComponent(typeof(OrloMover), typeof(OrloAttacker), typeof(HealthComponent))]
+public class PlayerManager : AbstractGameActor
 {
 	public float HitStunTime = 0.1f;
 	public float HitPushForce = 100f;
 	public float TimeToRespawn = 3f;
-
-	private MovementComponent _mover;
-	private WeaponComponent _weapon;
+	
 	private HealthComponent _health;
 	private Animator _animator;
 
@@ -19,20 +17,27 @@ public class PlayerManager : MonoBehaviour
 	private SimpleTimer _respawnTimer;
 
 	#region monobehaviour
-	private void Start()
+	protected override void Start()
 	{
-		_mover = GetComponent<MovementComponent>();
-		_weapon = transform.FindChild("gun").GetComponent<WeaponComponent>();
+		base.Start();
 		_stunTimer = new SimpleTimer(HitStunTime);
 		_health = GetComponent<HealthComponent>();
 		_health.Dead += OnDead;
 		_health.Hit += OnHit;
 		_spawnPos = transform.position;
 		_respawnTimer = new SimpleTimer(TimeToRespawn);
-		_animator = GetComponent<Animator>();
+		//_animator = GetComponent<Animator>();
 	}
 
-	private void Update ()
+	private void Update()
+	{
+		if(Input.GetButtonDown("Jump"))
+		{
+			_mover.Jump();
+		}
+	}
+
+	private void FixedUpdate ()
 	{
 		if(!_isDespawned)
 		{
@@ -59,42 +64,34 @@ public class PlayerManager : MonoBehaviour
 				}
 
 				bool aimMode = Input.GetButton("Fire2");
+
 				if(!aimMode)
 				{
-					_mover.Run(xMod);
+					_mover.Move(xMod, 0f);
+
+					Vector3 newScale = transform.localScale;
+					if((rigidbody2D.velocity.x < 0f && newScale.x > 0f) || (rigidbody2D.velocity.x > 0f && newScale.x < 0f))
+					{
+						newScale.x *= -1f;
+						transform.localScale = newScale;
+					}
 				}
 				else
 				{
-					if(xMod < 0f)
+					Vector3 newScale = transform.localScale;
+					if((xMod < 0f && newScale.x > 0f) || (xMod > 0f && newScale.x < 0f))
 					{
-						transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+						newScale.x *= -1f;
+						transform.localScale = newScale;
 					}
-					else if(xMod > 0f)
-					{
-						transform.rotation = Quaternion.Euler(0f, 0f, 0f);
-					}
-				}
-				
-				if(!_mover.IsJumping && Input.GetButtonDown("Jump"))
-				{
-					_mover.Jump();
-				}
-				else if(_mover.IsJumping && Input.GetButton("Jump"))
-				{
-					_mover.IsGliding = true;
-				}
-				
-				if(Input.GetButtonUp("Jump"))
-				{
-					_mover.IsGliding = false;
 				}
 
 				Vector2 fireDir = (new Vector2(xMod, yMod)).normalized;
-				_weapon.Aim(fireDir);
+				(_attacker as OrloAttacker).Aim(fireDir);
 
 				if(Input.GetButton("Fire1"))
 				{
-					_weapon.Fire(rigidbody2D.velocity);
+					(_attacker as OrloAttacker).Fire();
 				}
 			}
 		}
@@ -112,26 +109,26 @@ public class PlayerManager : MonoBehaviour
 		}
 
 		//doing animations
-		if(!_mover.IsJumping && rigidbody2D.velocity.x != 0f && _animator != null && !_animator.GetBool("isRunning"))
-		{
-			_animator.SetBool("isRunning", true);
-		}
-		else if(!_mover.IsJumping && rigidbody2D.velocity.x == 0f && _animator != null && _animator.GetBool("isRunning"))
-		{
-			_animator.SetBool("isRunning", false);
-		}
+//		if(!_mover.IsJumping && rigidbody2D.velocity.x != 0f && _animator != null && !_animator.GetBool("isRunning"))
+//		{
+//			_animator.SetBool("isRunning", true);
+//		}
+//		else if(!_mover.IsJumping && rigidbody2D.velocity.x == 0f && _animator != null && _animator.GetBool("isRunning"))
+//		{
+//			_animator.SetBool("isRunning", false);
+//		}
 	}
 
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
 		GameObject collisionGO = collision.gameObject;
-		_mover.CheckCollisionEnter(collisionGO);
+		//_mover.CheckCollisionEnter(collisionGO);
 		_health.CheckCollisionEnter(collisionGO);
 	}
 
 	private void OnCollisionExit2D(Collision2D collision)
 	{
-		_mover.CheckCollisionExit(collision);
+		//_mover.CheckCollisionExit(collision);
 	}
 
 	//don't need to broadcast to other components since none of them use triggers
@@ -173,7 +170,6 @@ public class PlayerManager : MonoBehaviour
 			rigidbody2D.velocity = Vector2.zero;
 			rigidbody2D.isKinematic = true;
 			collider2D.enabled = false;
-			_weapon.renderer.enabled = false;
 			renderer.enabled = false;
 			_isDespawned = true;
 			_respawnTimer.TargetTime = TimeToRespawn;
@@ -188,10 +184,10 @@ public class PlayerManager : MonoBehaviour
 			_isDespawned = false;
 			transform.position = _spawnPos;
 			renderer.enabled = true;
-			_weapon.renderer.enabled = true;
+			_attacker.renderer.enabled = true;
 			collider2D.enabled = true;
 			rigidbody2D.isKinematic = false;
-			_weapon.Reset();
+			(_attacker as OrloAttacker).ResetWeapon();
 			_health.Reset();
 			Vector3 cameraPos = Camera.main.transform.position;
 			cameraPos.x = transform.position.x;

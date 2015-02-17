@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class GunAmmoUpdater : MonoBehaviour
 {
-	private WeaponComponent _playerWeapon;
+	private AbstractAttacker _playerWeapon;
 	private string _curWeaponName;
 	private Image _ammoFG;
 	private Image _ammoBG;
@@ -13,7 +13,7 @@ public class GunAmmoUpdater : MonoBehaviour
 		PlayerManager player = FindObjectOfType<PlayerManager>();
 		if(player != null)
 		{
-			_playerWeapon = player.GetComponentInChildren<WeaponComponent>();
+			_playerWeapon = player.GetComponent<AbstractAttacker>();
 			_curWeaponName = _playerWeapon.CurrentWeapon.Name;
 		}
 		_ammoFG = transform.FindChild("Gun FG").GetComponent<Image>();
@@ -31,7 +31,7 @@ public class GunAmmoUpdater : MonoBehaviour
 			_ammoBG.sprite = _playerWeapon.CurrentWeapon.UserInterfaceBG;
 		}
 
-		float pct = (_playerWeapon.CurrentWeapon.HasAmmo) ? (float)_playerWeapon.CurrentAmmo / _playerWeapon.CurrentWeapon.StartAmmo : 1f;
+		float pct = (_playerWeapon.CurrentWeapon.HasAmmo) ? (float)_playerWeapon.AmmoRemaining / _playerWeapon.CurrentWeapon.StartAmmo : 1f;
 		_ammoFG.fillAmount = pct;
 
 	}
