@@ -16,7 +16,7 @@ public abstract class AbstractMover : MonoBehaviour
 	/// <summary>
 	/// The force added when jumping.
 	/// </summary>
-	public float JumpForce = 700f;
+	public float JumpForce = 200f;
 
 	/// <summary>
 	/// Whether or not to display the gizmo for the GroundCheck variables when in the Unity editor.
@@ -32,7 +32,7 @@ public abstract class AbstractMover : MonoBehaviour
 	/// <summary>
 	/// The radius of the circle used for checking to see if the mover is on the ground.
 	/// </summary>
-	public float GroundCheckRadius = 0.5f;
+	public float GroundCheckRadius = 0.04f;
 
 	/// <summary>
 	/// A layer mask used to determine which layers constitute the ground for this object.

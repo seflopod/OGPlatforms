@@ -2,7 +2,7 @@ using UnityEngine;
 using OgreToast.Utility;
 
 [RequireComponent(typeof(OrloMover), typeof(OrloAttacker), typeof(HealthComponent))]
-public class PlayerManager : AbstractGameActor
+public class PlayerManager : MonoBehaviour
 {
 	public float HitStunTime = 0.1f;
 	public float HitPushForce = 100f;
@@ -15,11 +15,14 @@ public class PlayerManager : AbstractGameActor
 	private Vector3 _spawnPos;
 	private bool _isDespawned = false;
 	private SimpleTimer _respawnTimer;
+	private OrloMover _mover;
+	private OrloAttacker _attacker;
 
 	#region monobehaviour
-	protected override void Start()
+	protected void Start()
 	{
-		base.Start();
+		_mover = GetComponent<OrloMover>();
+		_attacker = GetComponent<OrloAttacker>();
 		_stunTimer = new SimpleTimer(HitStunTime);
 		_health = GetComponent<HealthComponent>();
 		_health.Dead += OnDead;
@@ -87,11 +90,11 @@ public class PlayerManager : AbstractGameActor
 				}
 
 				Vector2 fireDir = (new Vector2(xMod, yMod)).normalized;
-				(_attacker as OrloAttacker).Aim(fireDir);
+				_attacker.Aim(fireDir);
 
 				if(Input.GetButton("Fire1"))
 				{
-					(_attacker as OrloAttacker).Fire();
+					_attacker.Fire();
 				}
 			}
 		}
