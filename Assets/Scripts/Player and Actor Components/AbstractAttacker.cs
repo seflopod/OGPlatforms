@@ -25,7 +25,7 @@ public abstract class AbstractAttacker : MonoBehaviour
 	public bool ShowBulletStartPosition = true;
 
 	/// <summary>
-	/// Where the bullet is spawned.  Stored as world coordinates, but edited as local coordinates.
+	/// Where the bullet is spawned.  Stored and edited as local coordinates.
 	/// </summary>
 	public Vector3 BulletStartPosition = Vector3.zero;
 
@@ -91,12 +91,13 @@ public abstract class AbstractAttacker : MonoBehaviour
 			_fireCooldown.Stop();
 			GameObject bullet = _bulletPool.GetGameObject();
 			bullet.SetActive(true);
-			float angle = Mathf.Rad2Deg * Mathf.Atan2(_aimDirection.y, _aimDirection.x);
-			Debug.Log(angle);
-			Debug.Log(_aimDirection);
-			Quaternion rot = Quaternion.Euler(0f, 0f, angle);
-			Vector3 bulletStartPos = rot * (transform.TransformPoint(BulletStartPosition * transform.localScale.x) - transform.position) + transform.position;
-			bullet.transform.position = bulletStartPos;
+			Quaternion rot = Quaternion.Euler(0f, 0f, Mathf.Rad2Deg * Mathf.Atan2(_aimDirection.y, Mathf.Abs(_aimDirection.x)));
+			bullet.transform.position = transform.TransformPoint(rot * BulletStartPosition);
+			bullet.transform.localScale = transform.localScale;
+			if(bullet.transform.localScale.x < 0f)
+			{
+				rot.z *= -1f;
+			}
 			bullet.transform.rotation = rot;
 			bullet.renderer.enabled = true;
 			bullet.GetComponent<SpriteRenderer>().sprite = _currentWeapon.BulletSprite;
