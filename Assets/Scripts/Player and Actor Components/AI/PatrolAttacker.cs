@@ -18,6 +18,7 @@ public class PatrolAttacker : AbstractAttacker
 		base.Aim (direction);
 		int angle = Mathf.RoundToInt(Mathf.Rad2Deg * Mathf.Atan2(_aimDirection.y, Mathf.Abs(_aimDirection.x)));
 		angle = ((angle + (int)Mathf.Sign(angle) * 44) / 45) * 45; //round to nearest multiple of 45 for 8-direction aiming
+		_aimDirection = new Vector2(Mathf.Cos(Mathf.Deg2Rad * angle), Mathf.Sin(Mathf.Deg2Rad * angle));
 		GunTransform.rotation = Quaternion.Euler(0f, 0f, angle);
 	}
 }
